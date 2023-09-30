@@ -1,0 +1,79 @@
+﻿@import "colors.scss";
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $background;
+    text-decoration: none;
+    font-family: monospace,sans-serif;
+    box-sizing: border-box;
+}
+nav {
+    position:sticky;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 4rem;
+    margin: auto;
+    color: $navlinks;
+
+    .content-left {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+
+        .logo {
+        }
+
+        .links {
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding: 0rem 2rem;
+
+            > a {
+                margin-left: 2rem;
+            }
+        }
+    }
+
+    .content-right {
+        display: flex;
+        flex-direction: row;
+        padding: 0rem 2rem;
+        justify-content: space-between;
+        align-items: center;
+
+        .right-links {
+            cursor: pointer;
+            padding-right: 2rem;
+            //border-bottom: 2px solid ;
+            transition: border-bottom 0.3s ease;
+        }
+
+        .button {
+            background-color: $btncolordark;
+            width: 10rem;
+            height: 2.5rem;
+            border-radius: 0.5rem;
+
+            > input {
+                text-decoration: none;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                width: 10rem;
+                height: 2.5rem;
+                font-size: 1.3rem;
+                background-color: transparent;
+                font-family: monospace;
+                color: $fontwhite;
+            }
+        }
+    }
+
+    a:hover {
+        color:$btncolordark;
+        border-bottom: 2px solid ;
+    }
+}

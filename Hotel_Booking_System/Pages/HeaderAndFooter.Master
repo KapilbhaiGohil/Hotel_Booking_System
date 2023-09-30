@@ -1,0 +1,42 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="HeaderAndFooter.master.cs" Inherits="Hotel_Booking_System.Pages.HeaderAndFooter" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" type="text/css" href="Css/HeaderAndFooter.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <nav>
+            <div class="content-left">
+                <div class="logo">
+                    <img src="../Images/logo.png" alt="Hotel Logo Image" height="38px" />
+                </div>
+                <div class="links">
+                    <asp:HyperLink ID="HyperLink1" runat="server">Our Hotels</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink2" runat="server">Dining</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink3" runat="server">Wedding</asp:HyperLink>
+                    <asp:HyperLink ID="HyperLink4" runat="server">Manage Booking</asp:HyperLink>
+                </div>
+            </div>
+            <div class="content-right">
+                <div class="right-links">
+                     <asp:HyperLink ID="HyperLink5" runat="server">Signin</asp:HyperLink>
+                </div>
+                <div class="button">
+                     <asp:Button ID="Button1" runat="server" Text="Book a stay" />
+               </div>
+            </div>
+        </nav>
+        <div id="content">
+            <asp:ContentPlaceHolder ID="MainContent" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

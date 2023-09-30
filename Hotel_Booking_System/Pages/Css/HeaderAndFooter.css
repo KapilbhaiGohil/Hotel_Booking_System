@@ -1,0 +1,69 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fff;
+  text-decoration: none;
+  font-family: monospace, sans-serif;
+  box-sizing: border-box;
+}
+
+nav {
+  position: sticky;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 4rem;
+  margin: auto;
+  color: #4a4a4a;
+}
+nav .content-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+nav .content-left .links {
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0rem 2rem;
+}
+nav .content-left .links > a {
+  margin-left: 2rem;
+}
+nav .content-right {
+  display: flex;
+  flex-direction: row;
+  padding: 0rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .content-right .right-links {
+  cursor: pointer;
+  padding-right: 2rem;
+  transition: border-bottom 0.3s ease;
+}
+nav .content-right .button {
+  background-color: #aa7938;
+  width: 10rem;
+  height: 2.5rem;
+  border-radius: 0.5rem;
+}
+nav .content-right .button > input {
+  text-decoration: none;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  width: 10rem;
+  height: 2.5rem;
+  font-size: 1.3rem;
+  background-color: transparent;
+  font-family: monospace;
+  color: #fff;
+}
+nav a:hover {
+  color: #aa7938;
+  border-bottom: 2px solid;
+}
+
+/*# sourceMappingURL=HeaderAndFooter.css.map */
