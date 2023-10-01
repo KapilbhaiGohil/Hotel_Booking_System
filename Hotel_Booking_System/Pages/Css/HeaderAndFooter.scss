@@ -8,7 +8,7 @@ body {
     box-sizing: border-box;
 }
 nav {
-    position:sticky;
+    position: sticky;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -68,12 +68,17 @@ nav {
                 background-color: transparent;
                 font-family: monospace;
                 color: $fontwhite;
+                transition: background-color 0.4s linear, box-shadow 0.4s,font-size 0.4s ease;
+
+                &:hover {
+                    font-size: 1.4rem;
+                }
             }
         }
     }
 
     a:hover {
-        color:$btncolordark;
-        border-bottom: 2px solid ;
+        color: $btncolordark;
+        border-bottom: 2px solid;
     }
 }

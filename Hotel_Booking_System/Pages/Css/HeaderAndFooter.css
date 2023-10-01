@@ -60,6 +60,10 @@ nav .content-right .button > input {
   background-color: transparent;
   font-family: monospace;
   color: #fff;
+  transition: background-color 0.4s linear, box-shadow 0.4s, font-size 0.4s ease;
+}
+nav .content-right .button > input:hover {
+  font-size: 1.4rem;
 }
 nav a:hover {
   color: #aa7938;
