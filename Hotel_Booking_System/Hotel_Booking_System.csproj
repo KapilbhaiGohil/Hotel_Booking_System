@@ -124,7 +124,9 @@
     <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
+    <Content Include="Images\hotel-calander.png" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\search-icon.svg" />
     <Content Include="Images\taj.jpg" />
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\Script\Home.js" />
