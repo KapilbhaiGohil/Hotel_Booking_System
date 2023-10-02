@@ -39,10 +39,6 @@
   color: #fff;
   transition: background-color 0.4s linear, box-shadow 0.4s, font-size 0.4s ease;
 }
-.home-image .image-title > input:hover {
-  background-color: #d29751;
-  font-size: 1.4rem;
-}
 .home-image .book-info {
   cursor: pointer;
   position: absolute;
@@ -81,10 +77,6 @@
   color: #fff;
   transition: background-color 0.4s linear, box-shadow 0.4s, font-size 0.4s ease;
 }
-.home-image .book-info input:hover {
-  background-color: #d29751;
-  font-size: 1.4rem;
-}
 .home-image .overlay {
   background: rgba(74, 74, 74, 0.55);
   position: fixed;
@@ -109,6 +101,18 @@
   margin: auto;
   width: 54%;
   border-radius: 1rem;
+}
+.home-image .book-form .close-logo {
+  cursor: pointer;
+  box-shadow: 0 10px 12px 0 rgba(0, 0, 0, 0.05);
+}
+.home-image .book-form .close-logo > img {
+  background: #aa7938;
+  position: absolute;
+  width: 3%;
+  right: 3%;
+  border-radius: 0.3rem;
+  top: 4%;
 }
 .home-image .book-form .date-info {
   display: flex;
@@ -169,7 +173,7 @@
   width: 100%;
   height: 10rem;
 }
-.home-image .book-form .room-info > .room {
+.home-image .book-form .room-info > .room-outer {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -178,23 +182,50 @@
   justify-content: space-between;
   align-items: center;
 }
-.home-image .book-form .room-info > .room > div {
-  width: 14%;
-  height: 100%;
+.home-image .book-form .room-info > .room-outer > .rooms {
+  display: flex;
+  flex-direction: row;
 }
-.home-image .book-form .room-info > .room > div > button {
+.home-image .book-form .room-info > .room-outer > .rooms > .room {
+  display: flex;
+  border-radius: 0.4rem;
+  background: white;
+  width: 7.55rem;
+  opacity: 0.9;
+  border-top: 3px solid transparent;
+}
+.home-image .book-form .room-info > .room-outer > .rooms > .room > img {
+  height: 50%;
+  background: #aa7938;
+  border-radius: 0.1rem;
+  cursor: pointer;
+}
+.home-image .book-form .room-info > .room-outer > .rooms > .room > button {
+  font-weight: 100;
+}
+.home-image .book-form .room-info > .room-outer > .rooms .active {
+  border-top: 3px solid #aa7938;
+  opacity: 1;
+}
+.home-image .book-form .room-info > .room-outer > .rooms .active > button {
+  font-weight: 800;
+}
+.home-image .book-form .room-info > .room-outer > .add-room-btn {
+  border-radius: 0.4rem;
+  border-top: 3px solid #aa7938;
+  background: white;
+}
+.home-image .book-form .room-info > .room-outer button {
   border: none;
   background: none;
   color: black;
   font-weight: 800;
   font-size: 1.1rem;
-  background: white;
   padding: 0.3rem 1rem;
   width: 100%;
-  border-radius: 0.4rem;
-  border-top: 3px solid #aa7938;
+  cursor: pointer;
 }
-.home-image .book-form .room-info > .room > div > input {
+.home-image .book-form .room-info > .room-outer input {
   border: none;
   background: none;
   color: #aa7938;
@@ -211,7 +242,13 @@
   padding: 1rem;
 }
 .home-image .book-form .room-info .info {
+  height: 29%;
+  width: 92%;
   margin: 0 0 1rem 2rem;
+  background: white;
+  border-radius: 0.4rem;
+}
+.home-image .book-form .room-info .info .infoele {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -219,12 +256,10 @@
   text-transform: uppercase;
   font-weight: 600;
   color: #731414;
-  height: 29%;
-  width: 92%;
-  background: white;
-  border-radius: 0.4rem;
+  width: 100%;
+  height: 100%;
 }
-.home-image .book-form .room-info .info > div > button {
+.home-image .book-form .room-info .info .infoele > div > button {
   width: 30px;
   height: 30px;
   border-radius: 0.4rem;
@@ -249,6 +284,97 @@
   outline: none;
   border-radius: 0.4rem;
   box-shadow: 0px 0px 5px 0px black;
+}
+
+.home-body {
+  margin: 1rem 7rem;
+  box-shadow: 0 11px 12px 0 rgba(0, 0, 0, 0.2);
+  display: flex;
+  background-color: #ffffff;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 0 3rem;
+}
+.home-body .heading {
+  padding: 2rem 0;
+}
+.home-body .hotel-info-outer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+}
+.home-body .hotel-info-outer .hotel-text {
+  text-align: justify;
+  padding: 0 1rem 0 0;
+  color: #323232;
+  font-size: 1rem;
+  font-family: Calibri;
+  width: 58%;
+}
+.home-body .hotel-info-outer .hotel-text h4 {
+  font-size: 1.3rem;
+  padding-bottom: 1rem;
+}
+.home-body .hotel-info-outer .hotel-text a {
+  color: #d29751;
+  border-bottom: 1px solid #d29751;
+  font-size: 0.875rem;
+  letter-spacing: -1px;
+  line-height: 12px;
+  word-break: break-word;
+}
+.home-body .hotel-info-outer .hotel-text > div > p {
+  line-height: 1.6rem;
+  font-family: Calibri;
+  margin: 2rem 0;
+}
+.home-body .hotel-info-outer .hotel-text > div > p button {
+  outline: none;
+  border: none;
+  background: none;
+  color: #d29751;
+  border-bottom: 1px solid;
+  cursor: pointer;
+  font-weight: 900;
+}
+.home-body .hotel-info-outer .hotel-text li {
+  font-family: Calibri;
+}
+.home-body .hotel-info-outer .hotel-text h8 {
+  letter-spacing: 0px;
+  font-size: 1rem;
+  font-weight: 900;
+  border-bottom: 1px solid black;
+}
+.home-body .hotel-info-outer .hotel-text .links {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 0.6rem;
+}
+.home-body .hotel-info-outer .hotel-text .links img {
+  width: 1.4rem;
+  margin-right: 1rem;
+}
+.home-body .hotel-info-outer .hotel-image {
+  overflow-y: scroll;
+  height: 45rem;
+  margin-bottom: 6rem;
+}
+.home-body .hotel-info-outer .hotel-image #image-content {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-column-gap: 0rem;
+  grid-row-gap: 0.9rem;
+}
+.home-body .hotel-info-outer .hotel-image #image-content > img {
+  width: 95%;
+  height: 12.5rem;
 }
 
 /*# sourceMappingURL=Home.css.map */

@@ -68,10 +68,6 @@ nav {
                 font-family: monospace;
                 color: $fontwhite;
                 transition: background-color 0.4s linear, box-shadow 0.4s,font-size 0.4s ease;
-
-                &:hover {
-                    font-size: 1.4rem;
-                }
             }
         }
     }

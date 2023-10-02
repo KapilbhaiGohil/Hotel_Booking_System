@@ -4,8 +4,7 @@
 
 <html>
 <head runat="server">
-    <title></title>
-
+    <link rel="icon" href="../Images/logo.png" style="width:10%;"/>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
     <link rel="stylesheet" type="text/css" href="Css/HeaderAndFooter.css" />
