@@ -360,7 +360,7 @@
             width: 58%;
 
             h4 {
-                font-size: 1.3rem;
+                font-size: 1.25rem;
                 padding-bottom: 1rem;
             }
 
@@ -374,7 +374,7 @@
             }
 
             > div {
-                >p {
+                > p {
                     line-height: 1.6rem;
                     font-family: Calibri;
                     margin: 2rem 0;
@@ -414,6 +414,55 @@
                     margin-right: 1rem;
                 }
             }
+
+            .highlights {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: flex-start;
+                margin-bottom: 2rem;
+
+                > div {
+                    width: 100%;
+                    padding: 1rem 0.3rem;
+                    display: flex;
+                    justify-content: space-between;
+
+                    > div {
+                        display: flex;
+                        justify-content: flex-start;
+                        align-items: center;
+                        width: 46%;
+                        flex-direction: row;
+
+                        img {
+                            width: 6.5%;
+                        }
+                    }
+                }
+
+                p {
+                    font-family: Calibri;
+                    color: #323232;
+                    margin-left: 0.625rem;
+                    font-size: 1rem;
+                    vertical-align: middle;
+                    padding-right: 5px;
+                    line-height: 1;
+                    display: table-cell;
+                }
+            }
+
+            .policy {
+                line-height: 1.7rem;
+
+                li {
+                    font-family: Calibri;
+                    color: #323232;
+                    font-size: 1rem;
+                    list-style-type: none;
+                }
+            }
         }
 
         .hotel-image {
@@ -432,6 +481,95 @@
                     height: 12.5rem;
                 }
             }
+        }
+    }
+}
+
+.card {
+    box-shadow: 0 11px 12px 0 rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    width: 28%;
+    justify-content: flex-start;
+    align-items: flex-end;
+    border-radius: 1.5rem;
+
+    > .img-container {
+        padding: 1rem;
+        width: 100%;
+
+        > img {
+            width: 100%;
+        }
+    }
+
+    > .card-info {
+        padding: 0 1rem;
+        font-size: 1rem;
+        line-height: 1.3rem;
+        text-align: justify;
+        font-family: Calibri;
+
+        > span {
+            font-size: 1.5rem;
+            color: black;
+        }
+
+        > span, p {
+            font-family: Calibri;
+            line-height: 1.31;
+            color: #4a4a4a;
+            margin: 0.875rem 0;
+        }
+
+        > div {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0.2rem 0;
+
+            > img {
+                width: 1.5rem;
+            }
+
+            > span {
+                margin-left: 1rem;
+            }
+        }
+    }
+
+    .price {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: flex-end;
+        flex-direction: column;
+        margin: 2rem;
+
+        > p {
+            font-family: Calibri;
+            font-size: 0.625rem;
+            text-align: right;
+            color: #9b9b9b;
+        }
+
+        > div {
+            font-size: 1.5rem;
+            line-height: 2rem;
+        }
+
+        > button {
+            outline: none;
+            border: none;
+            background: none;
+            width: 8rem;
+            height: 2rem;
+            border-radius: 0.3rem;
+            background: $btncolor;
+            text-align: center;
+            text-transform: uppercase;
+            color: #ffffff;
+            font-size: 0.85rem;
+            cursor: pointer;
         }
     }
 }

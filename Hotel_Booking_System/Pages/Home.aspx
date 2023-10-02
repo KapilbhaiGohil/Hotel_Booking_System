@@ -130,27 +130,34 @@
                             <button type="button" id="more" onclick="showMoreInfo()">Show More</button>
                         </p>
                     </div>
-                    <div>
-                        <h8>Hotel Highlights</h8>
+                    <div class="highlights">
+                        <h4>Hotel Highlights</h4>
                         <div>
-                            <span>
-                                <img src="../Images/map.png" width="1.7%" />
+                            <div>
+                                <img src="../Images/map.png" width="4.5%" />
                                 <p>18th Century Historic Palace</p>
-                                <img src="../Images/gps.png" width="1.7%" />
+
+                            </div>
+                            <div>
+                                <img src="../Images/lake.png" width="4.5%" />
                                 <p>Floating in the Middle of a Lakes</p>
-                            </span>
+                            </div>
                         </div>
                         <div>
-                            <span>
+
+                            <div>
                                 <img src="../Images/map.png" width="1.7%" />
                                 <p>Exclusive Palace Butler Service</p>
+                            </div>
+                            <div>
                                 <img src="../Images/icons8-food-24.png" width="1.7%" />
                                 <p>Royal Historic Boat Romantic Dinner</p>
-                            </span>
+                            </div>
+
                         </div>
                     </div>
-                    <div>
-                        <h8>Hotel Policies</h8>
+                    <div class="policy">
+                        <h4>Hotel Policies</h4>
                         <ul>
                             <li>Check-in time: 2:00 PM</li>
                             <li>Check-out time: 12:00 Noon</li>
@@ -163,8 +170,8 @@
                     </div>
                 </div>
                 <div class="hotel-image">
-                    <div style="padding-bottom:0.9rem">
-                        <img src="../Images/Hotel/1.jpeg"width="100%" height="270rem"/>
+                    <div style="padding-bottom: 0.9rem">
+                        <img src="../Images/Hotel/1.jpeg" width="100%" height="270rem" />
                     </div>
                     <div id="image-content">
                     </div>
@@ -172,6 +179,35 @@
             </div>
         </div>
     </div>
-
+    <div class="card">
+        <div class="img-container">
+            <img src="../Images/Rooms/Luxury Room Garden Non Lake View.jpeg"/>
+        </div>
+        <div class="card-info">
+            <span>Luxury Room Garden Non Lake View</span>
+            <p>Luxury Rooms offer princely-inspired décor with stunning views of the Lily Pond. Each room is unique in size and is adorned with traditional Indian silks and dark teak furniture.</p>
+            <div>
+                <img src="../Images/area.png"/>
+                <span> 21-33 Sq Mt</span>
+            </div>
+            <div>
+                <img src="../Images/wifi.png"/>
+                <span>Inclusive of WiFi</span>
+            </div>
+            <div>
+                <img src="../Images/maximumOccoumpany.png"/>
+                <span>Up to 2 guests</span>
+            </div>
+            <div>
+                <img src="../Images/bedType.png"/>
+                <span>King/Twin</span>
+            </div>
+        </div>
+        <div class="price">
+            <p>Starting Rate/Night</p>
+            <div>₹37,500*</div>
+            <button type="button">VIEW DETAILS</button>
+        </div>
+    </div>
     <script src="Script/Home.js" type="text/javascript"></script>
 </asp:Content>
