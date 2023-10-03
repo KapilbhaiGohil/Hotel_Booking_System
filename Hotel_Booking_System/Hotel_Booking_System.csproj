@@ -161,9 +161,11 @@
     <Content Include="Images\icons8-mail-25.png" />
     <Content Include="Images\icons8-share-25.png" />
     <Content Include="Images\lake.png" />
+    <Content Include="Images\left.png" />
     <Content Include="Images\logo.png" />
     <Content Include="Images\map.png" />
     <Content Include="Images\maximumOccoumpany.png" />
+    <Content Include="Images\right.png" />
     <Content Include="Images\Rooms\Grand Presidential Suite 1 Bedroom Lake View.jpeg" />
     <Content Include="Images\Rooms\Grand Royal Suite 1 Bedroom Lake View.jpeg" />
     <Content Include="Images\Rooms\Historical 1 Bedroom Suite Lake View.jpeg" />

@@ -179,34 +179,18 @@
             </div>
         </div>
     </div>
-    <div class="card">
-        <div class="img-container">
-            <img src="../Images/Rooms/Luxury Room Garden Non Lake View.jpeg"/>
+    <div id="card-outer" class="card-outer">
+        <div>
+            <h1>Guest Rooms</h1>
         </div>
-        <div class="card-info">
-            <span>Luxury Room Garden Non Lake View</span>
-            <p>Luxury Rooms offer princely-inspired décor with stunning views of the Lily Pond. Each room is unique in size and is adorned with traditional Indian silks and dark teak furniture.</p>
-            <div>
-                <img src="../Images/area.png"/>
-                <span> 21-33 Sq Mt</span>
-            </div>
-            <div>
-                <img src="../Images/wifi.png"/>
-                <span>Inclusive of WiFi</span>
-            </div>
-            <div>
-                <img src="../Images/maximumOccoumpany.png"/>
-                <span>Up to 2 guests</span>
-            </div>
-            <div>
-                <img src="../Images/bedType.png"/>
-                <span>King/Twin</span>
-            </div>
+        <div id="onescreen" class="onescreen">
+
         </div>
-        <div class="price">
-            <p>Starting Rate/Night</p>
-            <div>₹37,500*</div>
-            <button type="button">VIEW DETAILS</button>
+        <div id="left-arr" class="left-arr">
+            <img src="../Images/left.png"/>
+        </div>
+        <div id="right-arr" class="right-arr">
+            <img src="../Images/right.png"/>
         </div>
     </div>
     <script src="Script/Home.js" type="text/javascript"></script>

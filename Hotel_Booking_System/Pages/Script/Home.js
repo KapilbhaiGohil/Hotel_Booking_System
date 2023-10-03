@@ -175,8 +175,165 @@ let dots = document.getElementById("dots");
 let para = document.getElementById("para");
 function showMoreInfo() {
     para.innerHTML = content;
+    document.getElementsByClassName('hotel-image')[0].style.height = "78rem";
 }
 
 function showLessInfo() {
     para.innerHTML = smallcontent;
+    document.getElementsByClassName('hotel-image')[0].style.height = "46rem";
 }
+
+
+
+//carosoul data
+var cards = [
+    {
+        title: "Luxury Room Garden Non Lake View",
+        image: "Luxury Room Garden Non Lake View",
+        defaultText: "Luxury Rooms offer princely-inspired décor with stunning views of the Lily Pond. Each room is unique in size and is adorned with traditional Indian silks and dark teak furniture.",
+        showMoreText: "",
+        area: "21-33 Sq Mt",
+        wifi: "Inclusive of WiFi",
+        gauest: "Up to 2 guests",
+        bedtype: "King/Twin",
+        price: "₹ 37,500 *"
+    }, 
+    {
+        title: "Luxury Room Lake View",
+        image: "Luxury Room Lake View",
+        defaultText: "Luxury Rooms have a princely-inspired décor with wooden lattice & araish work ceilings and discrete niches. They offer views of",
+        showMoreText: "Luxury Rooms have a princely-inspired décor with wooden lattice & araish work ceilings and discrete niches. They offer views of the placid waters of Lake Pichola. Each room is unique in size and is adorned with traditional Indian silks and dark teak furniture.",
+        area: "24-31 Sq Mt",
+        wifi: "Inclusive of WiFi",
+        gauest: "Up to 2 guests",
+        bedtype: "King/Twin",
+        price: "₹ 47,500 *"
+    },
+    {
+        title: "Palace Room Lake View",
+        image: "Palace Room Lake View",
+        defaultText: "Palace Rooms have a princely-inspired décor with wooden lattice & araish work ceilings and discrete niches. They offer views of ",
+        showMoreText: "Palace Rooms have a princely-inspired décor with wooden lattice & araish work ceilings and discrete niches. They offer views of the placid waters of Lake Pichola. Each room is unique in size and is adorned with traditional Indian silks and dark teak furniture.",
+        area: "28-42 Sq Mt",
+        wifi: " Inclusive of WiFi",
+        gauest: "Up to 3 guests",
+        bedtype: "King/Twin",
+        price: "₹ 52,500 *"
+    },
+    {
+        title: "Historical 1 Bedroom Suite Lake View",
+        image: "Historical 1 Bedroom Suite Lake View",
+        defaultText: "The Historical Suites present a welcoming ambience with marble floors, exquisite Rajasthani artwork and sheer fabrics, which enable",
+        showMoreText: "The Historical Suites present a welcoming ambience with marble floors, exquisite Rajasthani artwork and sheer fabrics, which enable crisp sunlight to enhance the beauty of each room. A four-poster bed, a sitting area overlooking Lake Pichola, a walk-in wardrobe and a spacious bathroom make these suites ideal for the discerning leisure traveler. Suite Names are Rang Mahal, Sandhya & Sisarma Darshan.",
+        area: "42-61 Sq Mt",
+        wifi: "Inclusive of WiFi",
+        gauest: "Up to 3 guests",
+        bedtype: "King",
+        price: "₹ 64,000 *"
+    },
+    {
+        title: "Royal Suite 1 Bedroom Lake View",
+        image: "Royal Suite 1 Bedroom Lake View",
+        defaultText: "Outfitted in impeccable designs, each of the Royal Suites are adorned with stained glass windows offering stunning views of the lake",
+        showMoreText: "Outfitted in impeccable designs, each of the Royal Suites are adorned with stained glass windows offering stunning views of the lake and the Aravali mountain range. Suite Names are Basant Bahar, Machla Magra, Jag Mandir Darshan & Aravali Darshan. Basant Bahar and Jag Mandir Darshan are interconnected.",
+        area: "53-59 Sq Mt",
+        wifi: " Inclusive of WiFi",
+        gauest: "Up to 3 guests",
+        bedtype: "King",
+        price: "₹ 1,07,600 *"
+    },
+    {
+        title: "Grand Royal Suite 1 Bedroom Lake View",
+        image: "Grand Royal Suite 1 Bedroom Lake View",
+        defaultText: "The Grand Royal Suites are the epitome of royal grandeur. Each of these individually themed suites feature high ceilings, deeply-car",
+        showMoreText: "The Grand Royal Suites are the epitome of royal grandeur. Each of these individually themed suites feature high ceilings, deeply-carved mouldings, ornate glasswork, and miniature paintings. Many rooms offers unique features: Jacuzzi tubs, marble clad bathrooms with switch-lite glass windows, rain-showers, original works of art, crystal chandeliers.",
+        area: "74-108 Sq Mt",
+        wifi: "Inclusive of WiFi",
+        gauest: "Up to 3 guests",
+        bedtype: "King",
+        price: "₹ 1,88,400 *"
+
+    },
+    {
+        title: "Grand Presidential Suite 1 Bedroom Lake View",
+        image: "Grand Presidential Suite 1 Bedroom Lake View",
+        defaultText: "The Shambhu Prakash suite, named after the Maharana Shambhu Singh is remembered for his progressive reforms and welfare measures und",
+        showMoreText: "The Shambhu Prakash suite, named after the Maharana Shambhu Singh is remembered for his progressive reforms and welfare measures undertaken in the 1860s. This suite is furnished with high curved arches and has a European touch to its design. The adjoining balcony offers panoramic views of the lake and hills.",
+        area: "161 Sq Mt",
+        wifi: "Inclusive of WiFi",
+        gauest: "Up to 3 guests",
+        bedtype: "King",
+        price: "₹ 4,00,000 *"
+    }
+]
+let cardsHtml = '';
+let slides = [];
+for (let i = 0; i < cards.length; i++) {
+    let slideInnerHtml = '';
+    for (j = i; j < 3 + i && j < cards.length; j++) {
+        let text = cards[j].showMoreText.length == 0 ? cards[j].defaultText : cards[j].showMoreText;
+        slideInnerHtml +=
+            `
+     <div class="card">
+        <div class="img-cardinfo-wrapper">
+            <div class="img-container">
+                <img src="../Images/Rooms/`+ cards[j].image + `.jpeg"/>
+            </div>
+            <div class="card-info">
+                <span>`+ cards[j].title + `</span>
+                <p>`+ text + `</p>
+                <div>
+                    <img src="../Images/area.png"/>
+                    <span>`+ cards[j].area + `</span>
+                </div>
+                <div>
+                    <img src="../Images/wifi.png"/>
+                    <span>`+ cards[j].wifi + `</span>
+                </div>
+                <div>
+                    <img src="../Images/maximumOccoumpany.png"/>
+                    <span>`+ cards[j].gauest + `</span>
+                </div>
+                <div>
+                    <img src="../Images/bedType.png"/>
+                    <span>`+ cards[j].bedtype + `</span>
+                </div>
+            </div>
+        </div>
+        <div class="price">
+            <p>Starting Rate/Night</p>
+            <div>`+ cards[j].price + `</div>
+            <button type="button">VIEW DETAILS</button>
+        </div>
+    </div>
+    `
+    }
+    slides.push(slideInnerHtml);
+    i = j-1;
+}
+let cardOuter = document.getElementById("card-outer");
+let onescreen = document.getElementById("onescreen");
+let onscreenCarIndex = 0;
+onescreen.innerHTML = slides[onscreenCarIndex];
+let btnleft = document.getElementById("left-arr")
+let rightbtn = document.getElementById("right-arr");
+btnleft.style.display = 'none';
+
+btnleft.addEventListener('click', () => {
+    onscreenCarIndex--;
+    onescreen.innerHTML = slides[onscreenCarIndex];
+    if (onscreenCarIndex === 0) {
+        btnleft.style.display = "none";
+    }else if (onscreenCarIndex < slides.length - 1) {
+        rightbtn.style.display = 'block';
+    }
+})
+rightbtn.addEventListener('click', () => {
+    onscreenCarIndex++;
+    onescreen.innerHTML = slides[onscreenCarIndex];
+    if (onscreenCarIndex === slides.length - 1) {
+        rightbtn.style.display = "none";
+    }else if (onscreenCarIndex > 0) {
+        btnleft.style.display = "block";
+    }
+})
