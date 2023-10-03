@@ -270,6 +270,7 @@ let cardsHtml = '';
 let slides = [];
 for (let i = 0; i < cards.length; i++) {
     let slideInnerHtml = '';
+    let j = i;
     for (j = i; j < 3 + i && j < cards.length; j++) {
         let text = cards[j].showMoreText.length == 0 ? cards[j].defaultText : cards[j].showMoreText;
         slideInnerHtml +=
@@ -319,7 +320,8 @@ let btnleft = document.getElementById("left-arr")
 let rightbtn = document.getElementById("right-arr");
 btnleft.style.display = 'none';
 
-btnleft.addEventListener('click', () => {
+btnleft.addEventListener('click', async () => {
+    await blink(onescreen);
     onscreenCarIndex--;
     onescreen.innerHTML = slides[onscreenCarIndex];
     if (onscreenCarIndex === 0) {
@@ -328,7 +330,8 @@ btnleft.addEventListener('click', () => {
         rightbtn.style.display = 'block';
     }
 })
-rightbtn.addEventListener('click', () => {
+rightbtn.addEventListener('click', async () => {
+    await blink(onescreen);
     onscreenCarIndex++;
     onescreen.innerHTML = slides[onscreenCarIndex];
     if (onscreenCarIndex === slides.length - 1) {
@@ -337,3 +340,133 @@ rightbtn.addEventListener('click', () => {
         btnleft.style.display = "block";
     }
 })
+
+
+
+//for the awards logic
+let awardData = [
+    {
+        heading: "Condenast Reader’s Choice awards - 2022",
+        text: "Condenast Reader’s Choice awards - 2022"
+    },
+    {
+        heading: "The Best Hotels in the World",
+        text: "Taj Lake Palace, Udaipur ranked #3 in the The Best Hotels in the World category, Condé Nast Traveler Readers’ Choice Awards 2019"
+    },
+    {
+        heading: "Condé Nast Traveller",
+        text: "Taj Lake Palace was awarded Best Hotel in Asia and was featured in the Sixth Annual Gold List by Condé Nast Traveller UK in 2010."
+    },
+    {
+        heading: "The Luxury Travel Bible",
+        text: "Taj Lake Palace featured in the Top 10 Indian Palaces list by The Luxury Travel Bible in 2010."
+    },
+    {
+        heading: "TripAdvisor Travelers’",
+        text: "Taj Lake Palace was featured in the Top 10 Hotels for Service list and the Top 10 Luxury Hotels in India list at the TripAdvisor Travelers’ Choice Awards USA in 2010."
+    },
+    {
+        heading: "Readers' Choice",
+        text: "Taj Lake Palace was ranked third in the Top 10 Hotels in India list at the Condé Nast Traveler USA Readers' Choice Awards in 2012."
+    },
+    {
+        heading: "Travel + Leisure",
+        text: "Taj Lake Palace was featured in the Top 500 Best Hotels in the World list by Travel + Leisure in 2012."
+    },
+    {
+        heading: "Condé Nast Traveler USA",
+        text: "Taj Lake Palace was featured in the Platinum Circle—a list of hotels that have made it to the Gold List for five consecutive years—by the Condé Nast Traveler USA in 2013."
+    },
+    {
+        heading: "Ministry of Tourism India",
+        text: "Taj Lake Palace was awarded the National Tourism Award in the Five Star Deluxe category by the Ministry of Tourism India"
+    },
+    {
+        heading: "Condé Nast Traveler USA",
+        text: "Taj Lake Palace was featured in the Gold List and the Platinum Circle by Condé Nast Traveler USA in 2014."
+    },
+    {
+        heading: "Booking.com",
+        text: "Taj Lake Palace was rated the fifth Best Luxury Resort in the World by Booking.com guests in Booking's Best in 2015."
+    },
+    {
+        heading: "Lonely Planet Magazine",
+        text: "Taj Lake Palace was awarded The Best Luxury Hotel in India at the Lonely Planet Magazine Awards in 2015."
+    },
+    {
+        heading: "Travellers’ Choice",
+        text: "Taj Lake Palace was voted the fourth Best Hotel in India at the Travellers’ Choice Awards in 2015."
+    },
+    {
+        heading: "Conde Nast Traveler Gold List 2018",
+        text: `Travel and Leisure 2018 - Top 100 Hotels in the World - Ranked # 25  Taj Lake Palace, Udaipur
+
+Travel and Leisure 2018 - Top 10 Resort Hotels in Asia - Ranked # 10  Taj Lake Palace, Udaipur`
+    },
+    {
+        heading: "World Spa Awards",
+        text: "India's Best Hotel Spa 2022 - J Wellness Circle, Taj Lake Palace Udaipur"
+    }
+]
+let award = document.getElementById("div-award-cards")
+let frame = [];
+for (let i = 0; i < awardData.length; i++) {
+    let ht = '';
+    let j = i;
+    for (j = i; j < (3 + i) && j < awardData.length; j++) {
+        ht += `
+             <div class="award-card">
+                <div class="img-award">
+                    <img src="../Images/award.png" />
+                </div>
+                <div class="award-content">
+                    <div>
+                        <h4>`+ awardData[j].heading + `</h4>
+                    </div>
+                    <div>
+                        <p>`+ awardData[j].text + `</p>
+                    </div>
+                </div>
+            </div>
+        `
+    }
+    frame.push(ht);
+    i = j - 1;
+}
+
+let awardInd = 0;
+award.innerHTML = frame[awardInd];
+let awardLeftBtn = document.getElementById("left-arr-award")
+let awardRightBtn = document.getElementById("right-arr-award");
+awardLeftBtn.style.display = 'none';
+
+awardLeftBtn.addEventListener('click', async() => {
+    await blink(award);
+    awardInd--;
+    award.innerHTML = frame[awardInd];
+    if (awardInd === 0) {
+        awardLeftBtn.style.display = "none";
+    } else if (awardInd < frame.length - 1) {
+        awardRightBtn.style.display = 'block';
+    }
+})
+awardRightBtn.addEventListener('click', async() => {
+    await blink(award);
+    awardInd++;
+    award.innerHTML = frame[awardInd];
+    if (awardInd === frame.length - 1) {
+        awardRightBtn.style.display = "none";
+    } else if (awardInd > 0) {
+        awardLeftBtn.style.display = "block";
+    }
+})
+async function blink (ele) {
+    ele.style.opacity = 0;
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            ele.style.opacity = 1;
+            resolve();
+        }, 100);
+    });
+   
+}

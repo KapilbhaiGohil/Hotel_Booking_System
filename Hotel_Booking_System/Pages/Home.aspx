@@ -184,14 +184,39 @@
             <h1>Guest Rooms</h1>
         </div>
         <div id="onescreen" class="onescreen">
-
         </div>
         <div id="left-arr" class="left-arr">
-            <img src="../Images/left.png"/>
+            <img src="../Images/left.png" width="100%" />
         </div>
         <div id="right-arr" class="right-arr">
-            <img src="../Images/right.png"/>
+            <img src="../Images/right.png" width="100%" />
         </div>
     </div>
+    <p style="margin: 1rem 7rem;">*Rates Exclusive of taxes</p>
+    <div class="awards">
+        <div class="award-head">
+            <span>Awards</span>
+        </div>
+        <div class="div-award-cards" id="div-award-cards">
+        </div>
+        <div id="left-arr-award" class="left-arr-award">
+            <img src="../Images/left.png" width="100%" />
+        </div>
+        <div id="right-arr-award" class="right-arr-award">
+            <img src="../Images/right.png" width="100%" />
+        </div>
+    </div>
+    <div class="location">
+        <div class="location-heading">
+            <span>Location</span>
+        </div>
+        <div class="map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d21832.47422351335!2d73.69339725036292!3d24.58234187976845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x3967efecf87f0b8b%3A0x2708953a0e177443!2sTaj%20Lake%20Palace%2C%20Pichola%2C%20Udaipur%2C%20Rajasthan!3m2!1d24.575492999999998!2d73.6799334!4m5!1s0x3967e56550a14411%3A0xdbd8c28455b868b0!2sUdaipur%2C%20Rajasthan!3m2!1d24.585445!2d73.712479!5e0!3m2!1sen!2sin!4v1696345392613!5m2!1sen!2sin" width="600" height="450" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <div class="location-info">
+            <p>Taj Lake Palace, Udaipur is conveniently located within touching distance to prominent tourist attractions in and around Udaipur. Our palace hotel in Udaipur is also the perfect destination for a blissful getaway from Delhi, Jaipur & Ahmedabad. Enjoy our warm hospitality and service that make you feel at home. Explore the all meals inclusive 4D Travel offer to plan your next stay.</p>
+        </div>
+    </div>
+   
     <script src="Script/Home.js" type="text/javascript"></script>
 </asp:Content>

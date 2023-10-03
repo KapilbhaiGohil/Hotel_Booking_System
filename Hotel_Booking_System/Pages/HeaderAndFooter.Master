@@ -36,6 +36,92 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
         </div>
+         <footer class="footer">
+     <hr />
+     <div class="footer-links">
+         <div class="links-1">
+             <div>
+                 <a href="">Airline & Frequent Flyer Partners</a>
+                 <a href="">Taj Magazine</a>
+                 <a href="">J Wellness Circle</a>
+                 <a href="">Site Map</a>
+                 <a href="">Terms Of Use</a>
+                 <a href="">Contact Us</a>
+             </div>
+         </div>
+         <div class="links-2">
+             <a href="">Accessibility</a>
+             <a href="">Languages</a>
+             <a href="">Privacy Policy</a>
+             <a href="">Press Room</a>
+             <a href="">Careers</a>
+             <a href="">Blogs</a>
+         </div>
+         <div class="links-3">
+             <a href="">SAATHI</a>
+             <a href="">NIDHI</a>
+             <a href="">UTSAV</a>
+             <a href="">INCREDIBLE INDIA FILM</a>
+         </div>
+         <div class="footer-contact">
+             <div>
+                 <p>Join our newsletter</p>
+                 <button type="button">SUBSCRIBE</button>
+             </div>
+             <div class="footer-connect">
+                 <p>Connect with us:</p>
+                 <div>
+                     <div>
+                         <img src="../Images/ic-facebook@2x.png" />
+                     </div>
+                     <div>
+                         <img src="../Images/ic-instagram@2x.png" />
+                     </div>
+                     <div>
+                         <img src="../Images/twitter.png" />
+                     </div>
+                     <div>
+                         <img src="../Images/ic-youtube.svg" width="5%" />
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+     <hr />
+     <div class="footer-ref">
+         <div class="future-right">
+             <img src="../Images/ihcl-logo.svg" />
+             <p>©2022 The Indian Hotels Company Limited. All Rights Reserved.</p>
+         </div>
+         <div class="footer-brands">
+             <div>Our Brands:</div>
+             <div class="footer-brand-images-container">
+                 <div>
+                     <img src="../Images/footer/tajfooter.png" width="50rem" />
+                 </div>
+
+                 <div>
+                     <img src="../Images/footer/seleqtions.png" width="100rem" />
+                 </div>
+                 <div>
+                     <img src="../Images/footer/vivanta.png" width="100rem" />
+                 </div>
+                 <div>
+                     <img src="../Images/footer/ginger.png" width="100rem" />
+                 </div>
+                 <div>
+                     <img src="../Images/footer/ama.png" width="50rem" />
+                 </div>
+                 <div>
+                     <img src="../Images/footer/min.png" width="60rem" />
+                 </div>
+                 <div>
+                     <img src="../Images/footer/tajsats.png" width="70rem" />
+                 </div>
+             </div>
+         </div>
+     </div>
+ </footer>
     </form>
 </body>
 </html>
