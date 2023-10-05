@@ -43,10 +43,12 @@ namespace Hotel_Booking_System.Pages
             //Response.Write(jsondata);
             BookingData b = JsonConvert.DeserializeObject<BookingData>(jsondata);
             //Response.Write(b.from+" "+b.to)
+
             List<Room>rooms = rdao.GetRooms();
             JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
             string jsrooms = javaScriptSerializer.Serialize(rooms);
             Session["jsrooms"] = jsrooms;
+            Session["requiredRooms"] = jsondata;
             Session["checkin"] = b.from.Date.ToString("yyyy-MM-dd");
             Session["checkout"] = b.to.Date.ToString("yyyy-MM-dd");
             Response.Redirect("~/Pages/BookRoomList");

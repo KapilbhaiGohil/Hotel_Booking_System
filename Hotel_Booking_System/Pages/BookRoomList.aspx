@@ -26,12 +26,15 @@
 
         </div>
     </div>
-   <div id="totalRooms">
+    <div id="totalRooms">
+    </div>
+    <div id="cart" style="display:none"  class="cart">
 
-   </div>
+    </div>
     <script type="text/javascript">
         let jsrooms = <%=Session["jsrooms"] ?? ""%>
-            console.log(jsrooms);
+        let requiredRooms = <%=Session["requiredRooms"] ?? "" %>
+        console.log(jsrooms, requiredRooms);
     </script>
     <script src="Script/BookRoom.js"></script>
 </asp:Content>

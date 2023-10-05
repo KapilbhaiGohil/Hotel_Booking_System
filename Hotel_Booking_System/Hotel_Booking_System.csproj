@@ -130,10 +130,13 @@
     <Content Include="Global.asax" />
     <Content Include="Images\area.png" />
     <Content Include="Images\award.png" />
+    <Content Include="Images\bedIcon.png" />
     <Content Include="Images\bedType.png" />
     <Content Include="Images\call.png" />
+    <Content Include="Images\cart.svg" />
     <Content Include="Images\checkbox_checked.png" />
     <Content Include="Images\checkbox_unchecked.png" />
+    <Content Include="Images\children.png" />
     <Content Include="Images\close %281%29.png" />
     <Content Include="Images\close.png" />
     <Content Include="Images\footer\ama.png" />
@@ -171,6 +174,7 @@
     <Content Include="Images\ic-facebook%402x.png" />
     <Content Include="Images\ic-instagram%402x.png" />
     <Content Include="Images\ic-youtube.svg" />
+    <Content Include="Images\icons8-delete-100.png" />
     <Content Include="Images\icons8-food-24.png" />
     <Content Include="Images\icons8-mail-25.png" />
     <Content Include="Images\icons8-share-25.png" />
@@ -178,6 +182,7 @@
     <Content Include="Images\lake.png" />
     <Content Include="Images\left.png" />
     <Content Include="Images\logo.png" />
+    <Content Include="Images\man.png" />
     <Content Include="Images\map.png" />
     <Content Include="Images\maximumOccoumpany.png" />
     <Content Include="Images\right.png" />
@@ -192,10 +197,12 @@
     <Content Include="Images\taj.jpg" />
     <Content Include="Images\twitter.png" />
     <Content Include="Images\wifi.png" />
+    <Content Include="Pages\BookingForm.aspx" />
     <Content Include="Pages\BookRoomList.aspx" />
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Register.aspx" />
+    <Content Include="Pages\Script\BookingForm.js" />
     <Content Include="Pages\Script\BookRoom.js" />
     <Content Include="Pages\Script\Home.js" />
     <Content Include="Pages\Script\login.js" />
@@ -234,6 +241,7 @@
     <Content Include="Pages\Css\Login.scss" />
     <Content Include="Pages\Css\Register.scss" />
     <Content Include="Pages\Css\BookRoom.scss" />
+    <Content Include="Pages\Css\BookingForm.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -302,6 +310,13 @@
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Pages\BookingForm.aspx.cs">
+      <DependentUpon>BookingForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BookingForm.aspx.designer.cs">
+      <DependentUpon>BookingForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BookRoomList.aspx.cs">
       <DependentUpon>BookRoomList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

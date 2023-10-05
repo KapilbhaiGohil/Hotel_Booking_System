@@ -119,4 +119,71 @@
   cursor: pointer;
 }
 
+.cart {
+  display: flex;
+  padding: 1rem 7rem;
+  justify-content: flex-start;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  box-shadow: 0 -2px 12px 0 #e5e3e3;
+  height: 8rem;
+}
+.cart .cart-item {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 13rem;
+  margin-right: 1.3rem;
+}
+.cart .cart-item .cart-text-content .cart-room-heading {
+  font-size: 1.125rem;
+  color: #272727;
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.cart .cart-item .cart-text-content .cart-info {
+  color: #9b9b9b;
+  font-size: 0.8rem;
+}
+.cart .cart-item .cart-delete-img img {
+  width: 40%;
+  cursor: pointer;
+  float: right;
+}
+.cart .cart-additem {
+  margin-left: 4%;
+  padding: 2rem;
+  border: 2px solid #918b8b;
+  border-style: dashed;
+  color: #918b8b;
+}
+.cart .cart-button {
+  position: fixed;
+  right: 0;
+  width: 13%;
+  background: #aa7938;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 14%;
+  padding: 1rem;
+  cursor: pointer;
+  color: white;
+  border-radius: 0.4rem;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.cart .cart-button .cart-price {
+  display: flex;
+  flex-direction: column;
+}
+
 /*# sourceMappingURL=BookRoom.css.map */
