@@ -5,93 +5,6 @@
     <link rel="stylesheet" type="text/css" href="Css/Home.css" />
 </asp:Content>
 <asp:Content ID="home" ContentPlaceHolderID="MainContent" runat="server">
-    <div class="home-image">
-        <div class="image">
-            <img src="../Images/taj.jpg" width="100%" />
-        </div>
-        <div class="image-title">
-            <span>Taj Lake Palace, Udaipur</span>
-            <asp:Button ID="Button1" runat="server" Text="Know More" />
-        </div>
-
-        <div class="book-info" onclick="toggleForm()">
-            <div>
-                <div class="label">Where To?</div>
-                <div>Taj Lake Palace, Udaipur</div>
-            </div>
-            <div>
-                <div class="label">Check-In & Check-Oute</div>
-                <div>
-                    <span id="checkin"></span>
-                    <span id="checkout"></span>
-                </div>
-            </div>
-            <div>
-                <div class="label">Rooms And Gauests</div>
-                <div>Room 1-1 Gauest, 0 Child</div>
-            </div>
-            <div>
-                <input type="button" value="Check Availability" />
-            </div>
-        </div>
-        <div id="toggle-form" style="display: none">
-            <div class="overlay"></div>
-            <div class="book-form">
-                <div class="close-logo">
-                    <img src="../Images/close.png" width="15%" onclick="toggleForm()" />
-                </div>
-                <div class="date-info">
-                    <div class="name">
-                        <img src="../Images/search-icon.svg" alt="search icon" />
-                        <input type="text" name="hotelname" value="Taj Lake Palace, Udaipur" readonly />
-                    </div>
-                    <div class="from">
-                        <p>From:</p>
-                        <input type="date" id="setTodaysDate" name="setTodaysDate" />
-                    </div>
-                    <div class="to">
-                        <p>To:</p>
-                        <input type="date" id="setTommorowDate" name="setTommorowDate" />
-                    </div>
-                </div>
-                <div class="room-info">
-                    <div class="room-outer">
-                        <div class="rooms" id="rooms">
-                            <div class="room active" id="1">
-                                <button type="button" onclick="selectRoom(1)">
-                                    <span>Room </span>
-                                    <span id="room1">1</span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="add-room-btn">
-                            <button onclick="addroom()" type="button" id="addbtn">+Add Room</button>
-                        </div>
-                    </div>
-                    <div class="info" id="info">
-                        <div class="infoele" id="infoele1">
-                            <div style="border-right: 1px solid #a49494; width: 50%;">
-                                ADULTS
-                                <button onclick="decrementadult()" type="button"><span>-</span></button>
-                                <span id="adultno1">1</span>
-                                <button onclick="incrementadult()" type="button"><span>+</span></button>
-                            </div>
-                            <div>
-                                CHILDREN 
-                                <button onclick="decrementchild()" type="button"><span>-</span></button>
-                                <span id="childno1">1</span>
-                                <button onclick="incrementchild()" type="button"><span>+</span></button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- you can add info here-->
-                <div class="btn-container">
-                    <asp:Button runat="server" Text="Check Availability" />
-                </div>
-            </div>
-        </div>
-    </div>
     <div class="home-body">
         <div class="heading">
             <h1><span>Taj Lake Palace</span></h1>
@@ -217,6 +130,4 @@
             <p>Taj Lake Palace, Udaipur is conveniently located within touching distance to prominent tourist attractions in and around Udaipur. Our palace hotel in Udaipur is also the perfect destination for a blissful getaway from Delhi, Jaipur & Ahmedabad. Enjoy our warm hospitality and service that make you feel at home. Explore the all meals inclusive 4D Travel offer to plan your next stay.</p>
         </div>
     </div>
-   
-    <script src="Script/Home.js" type="text/javascript"></script>
 </asp:Content>

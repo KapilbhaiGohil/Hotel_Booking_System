@@ -73,7 +73,7 @@
   font-size: 1.3rem;
   background-color: #aa7938;
   border-radius: 0.5rem;
-  font-family: monospace;
+  font-family: Calibri;
   color: #fff;
   transition: background-color 0.4s linear, box-shadow 0.4s, font-size 0.4s ease;
 }
@@ -86,7 +86,7 @@
   right: 0;
 }
 .home-image .book-form {
-  position: absolute;
+  position: fixed;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -95,12 +95,14 @@
   background: #e0dfdf;
   box-shadow: 0 11px 12px 0 rgba(0, 0, 0, 0.05);
   bottom: 27%;
-  top: 6%;
+  top: 25%;
   left: 0;
   right: 0;
+  bottom: 25%;
   margin: auto;
   width: 54%;
   border-radius: 1rem;
+  z-index: 5;
 }
 .home-image .book-form .close-logo {
   cursor: pointer;
@@ -173,7 +175,7 @@
   width: 100%;
   height: 10rem;
 }
-.home-image .book-form .room-info > .room-outer {
+.home-image .book-form .room-info > .room-outer-info {
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -182,11 +184,11 @@
   justify-content: space-between;
   align-items: center;
 }
-.home-image .book-form .room-info > .room-outer > .rooms {
+.home-image .book-form .room-info > .room-outer-info > .rooms {
   display: flex;
   flex-direction: row;
 }
-.home-image .book-form .room-info > .room-outer > .rooms > .room {
+.home-image .book-form .room-info > .room-outer-info > .rooms > .room {
   display: flex;
   border-radius: 0.4rem;
   background: white;
@@ -194,28 +196,28 @@
   opacity: 0.9;
   border-top: 3px solid transparent;
 }
-.home-image .book-form .room-info > .room-outer > .rooms > .room > img {
+.home-image .book-form .room-info > .room-outer-info > .rooms > .room > img {
   height: 50%;
   background: #aa7938;
   border-radius: 0.1rem;
   cursor: pointer;
 }
-.home-image .book-form .room-info > .room-outer > .rooms > .room > button {
+.home-image .book-form .room-info > .room-outer-info > .rooms > .room > button {
   font-weight: 100;
 }
-.home-image .book-form .room-info > .room-outer > .rooms .active {
+.home-image .book-form .room-info > .room-outer-info > .rooms .active {
   border-top: 3px solid #aa7938;
   opacity: 1;
 }
-.home-image .book-form .room-info > .room-outer > .rooms .active > button {
+.home-image .book-form .room-info > .room-outer-info > .rooms .active > button {
   font-weight: 800;
 }
-.home-image .book-form .room-info > .room-outer > .add-room-btn {
+.home-image .book-form .room-info > .room-outer-info > .add-room-btn {
   border-radius: 0.4rem;
   border-top: 3px solid #aa7938;
   background: white;
 }
-.home-image .book-form .room-info > .room-outer button {
+.home-image .book-form .room-info > .room-outer-info button {
   border: none;
   background: none;
   color: black;
@@ -225,7 +227,7 @@
   width: 100%;
   cursor: pointer;
 }
-.home-image .book-form .room-info > .room-outer input {
+.home-image .book-form .room-info > .room-outer-info input {
   border: none;
   background: none;
   color: #aa7938;

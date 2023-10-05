@@ -42,13 +42,27 @@ nav .content-right .right-links {
   padding-right: 2rem;
   transition: border-bottom 0.3s ease;
 }
+nav .content-right .right-links input {
+  outline: none;
+  border: none;
+  font-size: 1.2rem;
+  background: #aa7938;
+  width: 6rem;
+  height: 2rem;
+  border-radius: 0.3rem;
+  color: white;
+  cursor: pointer;
+}
+nav .content-right .right-links a {
+  color: #aa7938;
+}
 nav .content-right .button {
   background-color: #aa7938;
   width: 10rem;
   height: 2.5rem;
   border-radius: 0.5rem;
 }
-nav .content-right .button > input {
+nav .content-right .button > button {
   text-decoration: none;
   outline: none;
   border: none;
@@ -60,6 +74,7 @@ nav .content-right .button > input {
   font-family: monospace;
   color: #fff;
   transition: background-color 0.4s linear, box-shadow 0.4s, font-size 0.4s ease;
+  font-family: Calibri;
 }
 nav a:hover {
   color: #aa7938;

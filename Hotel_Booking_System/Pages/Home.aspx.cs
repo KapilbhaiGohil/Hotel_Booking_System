@@ -1,9 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
+using System.Web.Services;
+using Hotel_Booking_System.Database;
 
 namespace Hotel_Booking_System
 {
@@ -11,7 +12,9 @@ namespace Hotel_Booking_System
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Session["checkin"] = null;
+            Session["checkout"] = null;
+            Session["jsrooms"] = null;
         }
     }
 }

@@ -82,7 +82,7 @@
             font-size: 1.3rem;
             background-color: $btncolordark;
             border-radius: 0.5rem;
-            font-family: monospace;
+            font-family: Calibri;
             color: $fontwhite;
             transition: background-color 0.4s linear, box-shadow 0.4s,font-size 0.4s ease;
         }
@@ -98,7 +98,7 @@
     }
 
     .book-form {
-        position: absolute;
+        position: fixed;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -107,13 +107,14 @@
         background: $bookformback;
         box-shadow: 0 11px 12px 0 rgba(0, 0, 0, 0.05);
         bottom: 27%;
-        top: 6%;
+        top: 25%;
         left: 0;
         right: 0;
+        bottom:25%;
         margin: auto;
         width: 54%;
         border-radius: 1rem;
-
+        z-index:5;
         .close-logo {
             cursor: pointer;
             box-shadow: 0 10px 12px 0 rgba(0, 0, 0, 0.05);
@@ -192,7 +193,7 @@
             width: 100%;
             height: 10rem;
 
-            > .room-outer {
+            > .room-outer-info {
                 display: flex;
                 flex-direction: row;
                 width: 100%;
