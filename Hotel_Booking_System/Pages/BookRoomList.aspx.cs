@@ -16,7 +16,8 @@ namespace Hotel_Booking_System.Pages
 
         protected void complexDataForBookingData_Click(object sender, EventArgs e)
         {
-            Response.Write(hiddenInputForBookingData.Value);
+            Session["finalBookingData"] = hiddenInputForBookingData.Value;
+            Response.Redirect("~/Pages/BookingForm");
         }
     }
 }

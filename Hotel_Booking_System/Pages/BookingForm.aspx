@@ -21,16 +21,16 @@
                     </div>
                     <div class="booking-body">
                         <div class="booking-date">
-                            <div>Check in Date</div>
-                            <div>Checkout Date</div>
+                            <div id="finalBookingDataCheckin">Check in Date</div>
+                            <div id="finalBookingDataCheckout">Checkout Date</div>
                         </div>
                         <div class="booking-rooms">
                             <div class="booking-data-info">
-                                <span>2 Days & 1 Night</span>
+                                <span id="dayAndNight">2 Days & 1 Night</span>
                                 <span style="float: right;">
                                     <input type="button" value="Change Room" /></span>
                             </div>
-                            <div class="booking-each-room-info">
+                            <div id="each-room-info" class="booking-each-room-info">
                                 <div>
                                     <span>
                                         <img src="../Images/bedIcon.png" width="5%" /></span>
@@ -45,38 +45,10 @@
                 <div class="booking-lower-heading">
                     <h1>Selected rooms</h1>
                 </div>
-                <div class="booking-lower-visual">
-                    <div class="booking-lower-head">
-                        <img src="../Images/Rooms/Historical 1 Bedroom Suite Lake View.jpeg"/>
-                    </div>
-                    <div class="booking-lower-info">
-                        <div class="booking-lower-room-img"></div>
-                        <div class="booking-loewr-price-info">
-                            <span>Rate description:</span>
-                            <p>Room only rate include basic Wi-Fi up to 4 Devices. Taxes extra</p>
-                            <p>Room only rate include basic Wi-Fi up to 4 Devices. Taxes extra</p>
-                            <p>Room only rate include basic Wi-Fi up to 4 Devices. Taxes extra</p>
-                        </div>
-                        <div class="booking-lower-gauest-info">
-                            <div class="man">
-                                <span>
-                                    <img src="../Images/man.png" width="4%" /></span>
-                                <span>1</span>
-                            </div>
-                            <div class="children">
-                                <span>
-                                    <img src="../Images/children.png" width="4%" /></span>
-                                <span>1</span>
-                            </div>
-                        </div>
-                        <div class="booking-lower-price">
-                            <span>₹ 72,500 *</span>
-                        </div>
-                    </div>
+                <div class="selectedRoomId" id="selectedRoom">
                 </div>
             </div>
         </div>
-
     </div>
     <div class="travellers-details-outer">
         <h1>Enter Traveller Details</h1>
@@ -86,17 +58,17 @@
                 <div class="first-row">
                     <div>
                         <label for="">FirstName*</label>
-                        <input type="text" />
+                        <input id="firstname" type="text" />
                     </div>
                     <div>
                         <label for="">LastName*</label>
-                        <input type="text" />
+                        <input  id="lastname" type="text" />
                     </div>
                 </div>
                 <div class="second-row">
                     <div>
                         <label for="">Email*</label>
-                        <input type="email" />
+                        <input id="email" type="email" />
                     </div>
                     <div>
                         <label for="">Country*</label>
@@ -105,12 +77,12 @@
                     </div>
                     <div>
                         <label for="">Phone Number*</label>
-                        <input type="number" />
+                        <input id="number" type="number" />
                     </div>
                 </div>
                 <div class="third-row">
                     <label for="">Special Requests</label>
-                    <textarea></textarea>
+                    <textarea id="specialrequest"></textarea>
                 </div>
                 <div class="agreement">
                     <div>
@@ -125,10 +97,17 @@
                     </div>
                 </div>
             </div>
-             <div class="final-button-container">
-     <input type="button" value="Book" />
- </div>
+            <div class="final-button-container">
+                 <input type="hidden" runat="server" id="hiddenField" />
+                <asp:Button runat="server" style="display:none" ID="finalBookButton" OnClick="finalBookButton_Click"/>
+                <input onclick="BookARoom()" type="button" value="Book" />
+            </div>
         </div>
     </div>
+    <script type="text/javascript">
+        let finalBookingData = <%=Session["finalBookingData"] ?? "''"%>;
+        let finalAspButton = '<%= finalBookButton.ClientID%>';
+        let finalStorage = '<%= hiddenField.ClientID%>';
+    </script>
     <script src="Script/BookingForm.js"></script>
 </asp:Content>

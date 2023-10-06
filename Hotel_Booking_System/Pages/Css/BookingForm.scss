@@ -109,82 +109,84 @@ body {
                 padding: 1rem 0 0.4rem 0;
             }
 
-            .booking-lower-visual {
-                display: flex;
-                justify-content: space-between;
-                align-items: flex-start;
-                padding: 1rem 0;
-
-                .booking-lower-head {
-                    width: 23%;
-
-                    img {
-                        width: 100%;
-                        border-radius: 0.4rem;
-                    }
-                }
-
-                .booking-lower-info {
-                    width: 73%;
+            .selectedRoomId {
+                .booking-lower-visual {
                     display: flex;
-                    flex-direction: row;
                     justify-content: space-between;
                     align-items: flex-start;
-                    color: #4a4a4a;
+                    padding: 1rem 0;
 
-                    .booking-lower-room-img {
-                    }
+                    .booking-lower-head {
+                        width: 23%;
 
-                    .booking-loewr-price-info {
-                        span {
-                            font-weight: bold;
-                            padding: 0.2rem 0;
+                        img {
+                            width: 100%;
+                            border-radius: 0.4rem;
                         }
                     }
 
-                    .booking-lower-gauest-info {
+                    .booking-lower-info {
+                        width: 73%;
                         display: flex;
-                        flex-direction: column;
-                        width: 14%;
+                        flex-direction: row;
                         justify-content: space-between;
-                        align-items: center;
-                        height: 6rem;
+                        align-items: flex-start;
+                        color: #4a4a4a;
 
-                        .man {
-                            display: flex;
-                            justify-content: flex-start;
-                            align-items: center;
-                            flex-direction: row;
+                        .booking-lower-room-img {
+                        }
 
-                            img {
-                                width: 2rem;
-                            }
-
+                        .booking-loewr-price-info {
                             span {
-                                padding: 0 0 0 1rem;
+                                font-weight: bold;
+                                padding: 0.2rem 0;
                             }
                         }
 
-                        .children {
+                        .booking-lower-gauest-info {
                             display: flex;
-                            justify-content: flex-start;
+                            flex-direction: column;
+                            width: 14%;
+                            justify-content: space-between;
                             align-items: center;
-                            flex-direction: row;
+                            height: 6rem;
 
-                            img {
-                                width: 2rem;
+                            .man {
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: center;
+                                flex-direction: row;
+
+                                img {
+                                    width: 2rem;
+                                }
+
+                                span {
+                                    padding: 0 0 0 1rem;
+                                }
                             }
 
-                            span {
-                                padding: 0 0 0 1rem;
+                            .children {
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: center;
+                                flex-direction: row;
+
+                                img {
+                                    width: 2rem;
+                                }
+
+                                span {
+                                    padding: 0 0 0 1rem;
+                                }
                             }
                         }
-                    }
 
-                    .booking-lower-price {
-                        font-size: 1.3rem;
-                        font-weight: bold;
-                        color: inherit;
+                        .booking-lower-price {
+                            font-size: 1.3rem;
+                            font-weight: bold;
+                            color: inherit;
+                        }
                     }
                 }
             }
@@ -284,6 +286,7 @@ body {
         }
 
         .final-button-container {
+            cursor:pointer;
             input {
                 outline: none;
                 border: none;

@@ -27,4 +27,9 @@ namespace Hotel_Booking_System.Models
             Bedtype = bedtype;
         }
     }
+    public class eachroom
+    {
+        public int ID { get; set; }
+        public int RoomTypeId { get; set; }
+    }
 }

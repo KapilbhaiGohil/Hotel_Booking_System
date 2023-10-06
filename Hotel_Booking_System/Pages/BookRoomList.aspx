@@ -35,8 +35,8 @@
 
     </div>
     <script type="text/javascript">
-        let jsrooms = <%=Session["jsrooms"] ?? ""%>
-        let requiredRooms = <%=Session["requiredRooms"] ?? "" %>
+        let jsrooms = <%=Session["jsrooms"] ?? "''"%>
+        let requiredRooms = <%=Session["requiredRooms"] ?? "''" %>
                 console.log(jsrooms, requiredRooms);
         var complexDataForBookingDataClientId = "<%= complexDataForBookingData.ClientID %>";
         var hiddenInputForBookingDataClientId = '<%= hiddenInputForBookingData.ClientID %>';

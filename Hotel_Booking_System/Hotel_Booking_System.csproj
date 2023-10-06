@@ -293,7 +293,6 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Database\CustomerDAO.cs" />
     <Compile Include="Database\ReservationDAO.cs" />
     <Compile Include="Database\RoomDAO.cs" />
     <Compile Include="Database\UserDAO.cs" />
@@ -307,13 +306,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Pages\BookingForm.aspx.cs">
       <DependentUpon>BookingForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\BookingForm.aspx.designer.cs">
       <DependentUpon>BookingForm.aspx</DependentUpon>

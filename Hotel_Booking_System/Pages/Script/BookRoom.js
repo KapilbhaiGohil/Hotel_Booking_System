@@ -269,6 +269,7 @@ function handleBookingDataSubmit() {
         FinalBookingDataObject.checkin = requiredRooms.from;
         FinalBookingDataObject.checkout = requiredRooms.to;
         FinalBookingDataObject.rooms = cartData;
+        FinalBookingDataObject.totaldays = TotalDays;
         console.log(FinalBookingDataObject)
         document.getElementById(hiddenInputForBookingDataClientId).value = JSON.stringify(FinalBookingDataObject);
         document.getElementById(complexDataForBookingDataClientId).click(); 

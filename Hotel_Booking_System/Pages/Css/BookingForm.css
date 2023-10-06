@@ -89,20 +89,20 @@ body {
   text-align: center;
   padding: 1rem 0 0.4rem 0;
 }
-.booking-form-outer .booking-cover .booking-form-lower .booking-lower-visual {
+.booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   padding: 1rem 0;
 }
-.booking-form-outer .booking-cover .booking-form-lower .booking-lower-visual .booking-lower-head {
+.booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual .booking-lower-head {
   width: 23%;
 }
-.booking-form-outer .booking-cover .booking-form-lower .booking-lower-visual .booking-lower-head img {
+.booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual .booking-lower-head img {
   width: 100%;
   border-radius: 0.4rem;
 }
-.booking-form-outer .booking-cover .booking-form-lower .booking-lower-visual .booking-lower-info {
+.booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual .booking-lower-info {
   width: 73%;
   display: flex;
   flex-direction: row;
@@ -110,11 +110,11 @@ body {
   align-items: flex-start;
   color: #4a4a4a;
 }
-.booking-form-outer .booking-cover .booking-form-lower .booking-lower-visual .booking-lower-info .booking-loewr-price-info span {
+.booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual .booking-lower-info .booking-loewr-price-info span {
   font-weight: bold;
   padding: 0.2rem 0;
 }
-.booking-form-outer .booking-cover .booking-form-lower .booking-lower-visual .booking-lower-info .booking-lower-gauest-info {
+.booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual .booking-lower-info .booking-lower-gauest-info {
   display: flex;
   flex-direction: column;
   width: 14%;
@@ -122,31 +122,31 @@ body {
   align-items: center;
   height: 6rem;
 }
-.booking-form-outer .booking-cover .booking-form-lower .booking-lower-visual .booking-lower-info .booking-lower-gauest-info .man {
+.booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual .booking-lower-info .booking-lower-gauest-info .man {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
 }
-.booking-form-outer .booking-cover .booking-form-lower .booking-lower-visual .booking-lower-info .booking-lower-gauest-info .man img {
+.booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual .booking-lower-info .booking-lower-gauest-info .man img {
   width: 2rem;
 }
-.booking-form-outer .booking-cover .booking-form-lower .booking-lower-visual .booking-lower-info .booking-lower-gauest-info .man span {
+.booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual .booking-lower-info .booking-lower-gauest-info .man span {
   padding: 0 0 0 1rem;
 }
-.booking-form-outer .booking-cover .booking-form-lower .booking-lower-visual .booking-lower-info .booking-lower-gauest-info .children {
+.booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual .booking-lower-info .booking-lower-gauest-info .children {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: row;
 }
-.booking-form-outer .booking-cover .booking-form-lower .booking-lower-visual .booking-lower-info .booking-lower-gauest-info .children img {
+.booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual .booking-lower-info .booking-lower-gauest-info .children img {
   width: 2rem;
 }
-.booking-form-outer .booking-cover .booking-form-lower .booking-lower-visual .booking-lower-info .booking-lower-gauest-info .children span {
+.booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual .booking-lower-info .booking-lower-gauest-info .children span {
   padding: 0 0 0 1rem;
 }
-.booking-form-outer .booking-cover .booking-form-lower .booking-lower-visual .booking-lower-info .booking-lower-price {
+.booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual .booking-lower-info .booking-lower-price {
   font-size: 1.3rem;
   font-weight: bold;
   color: inherit;

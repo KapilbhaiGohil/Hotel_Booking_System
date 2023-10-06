@@ -201,7 +201,10 @@ for (let i = 2; i <= 17; i++) {
 for (let i = 18; i <= 22; i++) {
     img += '<img src="../Images/Hotel/' + i + '.png"/>'
 }
-img_content.innerHTML = img;
+if (img_content!=null) {
+    img_content.innerHTML = img;
+}
+
 
 
 
@@ -365,32 +368,33 @@ for (let i = 0; i < cards.length; i++) {
 let cardOuter = document.getElementById("card-outer");
 let onescreen = document.getElementById("onescreen");
 let onscreenCarIndex = 0;
-onescreen.innerHTML = slides[onscreenCarIndex];
+if (onescreen!=null)onescreen.innerHTML = slides[onscreenCarIndex];
 let btnleft = document.getElementById("left-arr")
 let rightbtn = document.getElementById("right-arr");
-btnleft.style.display = 'none';
+if (btnleft != null && rightbtn!=null) {
+    btnleft.style.display = 'none';
 
-btnleft.addEventListener('click', async () => {
-    await blink(onescreen);
-    onscreenCarIndex--;
-    onescreen.innerHTML = slides[onscreenCarIndex];
-    if (onscreenCarIndex === 0) {
-        btnleft.style.display = "none";
-    }else if (onscreenCarIndex < slides.length - 1) {
-        rightbtn.style.display = 'block';
-    }
-})
-rightbtn.addEventListener('click', async () => {
-    await blink(onescreen);
-    onscreenCarIndex++;
-    onescreen.innerHTML = slides[onscreenCarIndex];
-    if (onscreenCarIndex === slides.length - 1) {
-        rightbtn.style.display = "none";
-    }else if (onscreenCarIndex > 0) {
-        btnleft.style.display = "block";
-    }
-})
-
+    btnleft.addEventListener('click', async () => {
+        await blink(onescreen);
+        onscreenCarIndex--;
+        onescreen.innerHTML = slides[onscreenCarIndex];
+        if (onscreenCarIndex === 0) {
+            btnleft.style.display = "none";
+        } else if (onscreenCarIndex < slides.length - 1) {
+            rightbtn.style.display = 'block';
+        }
+    })
+    rightbtn.addEventListener('click', async () => {
+        await blink(onescreen);
+        onscreenCarIndex++;
+        onescreen.innerHTML = slides[onscreenCarIndex];
+        if (onscreenCarIndex === slides.length - 1) {
+            rightbtn.style.display = "none";
+        } else if (onscreenCarIndex > 0) {
+            btnleft.style.display = "block";
+        }
+    })
+}
 
 
 //for the awards logic

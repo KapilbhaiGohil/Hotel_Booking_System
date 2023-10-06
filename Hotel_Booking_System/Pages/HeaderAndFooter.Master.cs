@@ -24,7 +24,8 @@ namespace Hotel_Booking_System.Pages
     }
     public partial class HeaderAndFooter : System.Web.UI.MasterPage
     {
-        RoomDAO rdao = new RoomDAO();
+        RoomDAO roomDAO = new RoomDAO();
+        ReservationDAO reservationDAO = new ReservationDAO();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -40,18 +41,25 @@ namespace Hotel_Booking_System.Pages
         protected void complexData_Click(object sender, EventArgs e)
         {
             string jsondata = hiddenInput.Value;
-            //Response.Write(jsondata);
             BookingData b = JsonConvert.DeserializeObject<BookingData>(jsondata);
-            //Response.Write(b.from+" "+b.to)
-
-            List<Room>rooms = rdao.GetRooms();
+            //first of all getall the booking infos
+            List<Reservation> allres = reservationDAO.GetALlReservationIds();
+            List<Reservation> conflictedRes = new List<Reservation>();
+            foreach(Reservation reservation in allres)
+            {
+                if(reservation.checkin <= b.to && reservation.checkout >= b.from) { 
+                    conflictedRes.Add(reservation);
+                    Response.Write(reservation.Id);
+                }
+            }
+            List<Room>rooms = roomDAO.GetRooms();
             JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
             string jsrooms = javaScriptSerializer.Serialize(rooms);
             Session["jsrooms"] = jsrooms;
             Session["requiredRooms"] = jsondata;
             Session["checkin"] = b.from.Date.ToString("yyyy-MM-dd");
             Session["checkout"] = b.to.Date.ToString("yyyy-MM-dd");
-            Response.Redirect("~/Pages/BookRoomList");
+            //Response.Redirect("~/Pages/BookRoomList");
         }
 
     }
