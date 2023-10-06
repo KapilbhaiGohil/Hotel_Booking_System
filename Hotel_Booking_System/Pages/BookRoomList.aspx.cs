@@ -13,5 +13,10 @@ namespace Hotel_Booking_System.Pages
         {
            
         }
+
+        protected void complexDataForBookingData_Click(object sender, EventArgs e)
+        {
+            Response.Write(hiddenInputForBookingData.Value);
+        }
     }
 }

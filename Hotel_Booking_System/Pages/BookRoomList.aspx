@@ -5,6 +5,9 @@
     <link rel="stylesheet" type="text/css" href="Css/BookRoom.css" />
 </asp:Content>
 <asp:Content ID="home" ContentPlaceHolderID="MainContent" runat="server">
+    <asp:Button ID="complexDataForBookingData" runat="server" OnClick="complexDataForBookingData_Click" Style="display: none" Text="none" />
+    <input type="hidden" runat="server" id="hiddenInputForBookingData" />
+
     <div class="information">
         <div class="info-heading">
             <span>Guest Rooms at Taj Lake Palace, Udaipur</span>
@@ -34,7 +37,10 @@
     <script type="text/javascript">
         let jsrooms = <%=Session["jsrooms"] ?? ""%>
         let requiredRooms = <%=Session["requiredRooms"] ?? "" %>
-        console.log(jsrooms, requiredRooms);
+                console.log(jsrooms, requiredRooms);
+        var complexDataForBookingDataClientId = "<%= complexDataForBookingData.ClientID %>";
+        var hiddenInputForBookingDataClientId = '<%= hiddenInputForBookingData.ClientID %>';
+
     </script>
     <script src="Script/BookRoom.js"></script>
 </asp:Content>

@@ -195,6 +195,7 @@
     <Content Include="Images\Rooms\Royal Suite 1 Bedroom Lake View.jpeg" />
     <Content Include="Images\search-icon.svg" />
     <Content Include="Images\taj.jpg" />
+    <Content Include="Images\tajBookForm.jpeg" />
     <Content Include="Images\twitter.png" />
     <Content Include="Images\wifi.png" />
     <Content Include="Pages\BookingForm.aspx" />

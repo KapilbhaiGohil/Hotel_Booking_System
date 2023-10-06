@@ -137,19 +137,7 @@ for (let j = 0; j < rooms.length; j++) {
     </div>
         `
     } else {
-        if (requiredRooms.Rooms.length === 1) {
-            html += `
-                               <div class="price">
-                <span> &#x20B9; `+ numericPrice.toLocaleString() + `</span>
- <p>Starting Rate/Night</p>
- <input type="button" onclick="directBookingDataSubmit(${numericPrice})" value="Book Room" />
-               </div>
-            </div>
-        </div>
-    </div>
-            `
-        } else {
-            html += `
+        html += `
                <div class="price">
                 <span>&#x20B9; `+ numericPrice.toLocaleString() + `</span>
  <p>Starting Rate/Night</p>
@@ -159,7 +147,6 @@ for (let j = 0; j < rooms.length; j++) {
         </div>
     </div>
         `
-        }
     }
 }
 totalrooms.innerHTML = html;
@@ -271,15 +258,19 @@ function getCartItem(obj,i) {
         </div>
 `
 }
-
+const FinalBookingDataObject = {};
 function handleBookingDataSubmit() {
     if (cartData.length !== requiredRooms.Rooms.length) {
         window.alert("Pls Select All Rooms");
     } else {
         const TotalBill = parseInt((document.getElementById("finalprice").textContent).replace(/[^0-9.*]/g, ''));
         window.alert(TotalBill);
+        FinalBookingDataObject.price = TotalBill;
+        FinalBookingDataObject.checkin = requiredRooms.from;
+        FinalBookingDataObject.checkout = requiredRooms.to;
+        FinalBookingDataObject.rooms = cartData;
+        console.log(FinalBookingDataObject)
+        document.getElementById(hiddenInputForBookingDataClientId).value = JSON.stringify(FinalBookingDataObject);
+        document.getElementById(complexDataForBookingDataClientId).click(); 
     }
 };
-function directBookingDataSubmit(price) {
-    window.alert(price);
-}

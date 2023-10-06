@@ -13,5 +13,23 @@ namespace Hotel_Booking_System.Pages
 
     public partial class BookRoomList
     {
+
+        /// <summary>
+        /// complexDataForBookingData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button complexDataForBookingData;
+
+        /// <summary>
+        /// hiddenInputForBookingData control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenInputForBookingData;
     }
 }

@@ -50,7 +50,7 @@
         <div id="content">
             <asp:Button ID="complexData" runat="server" OnClick="complexData_Click" Style="display: none" Text="none" />
             <input type="hidden" runat="server" id="hiddenInput" />
-            <div class="home-image">
+            <div id="home-image" class="home-image">
                 <div class="image">
                     <img src="../Images/taj.jpg" width="100%" />
                 </div>
