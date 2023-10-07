@@ -79,8 +79,8 @@ namespace Hotel_Booking_System.Pages
                     geteachroomidcmd.Parameters.AddWithValue("@roomType", room.heading);
                    
                     int eachRoomId = Convert.ToInt32(geteachroomidcmd.ExecuteScalar());
-                    Response.Write("<h5>" + eachRoomId + "</h5><br>");
-                    Response.Write("<h5>" + reservationId + "</h5><br>");
+                   // Response.Write("<h5>" + eachRoomId + "</h5><br>");
+                   // Response.Write("<h5>" + reservationId + "</h5><br>");
                     string insertIntoReservationRoom = "INSERT INTO reservationeachroom (reservationid, eachroomid, adult, children, price) " +
                       "VALUES (@ReservationId, @EachRoomId, @Adult, @Children, @Price);SELECT SCOPE_IDENTITY();";
                     SqlCommand cmd = new SqlCommand(insertIntoReservationRoom, con, transaction);
@@ -95,6 +95,7 @@ namespace Hotel_Booking_System.Pages
 
                 }
                 transaction.Commit();
+                Response.Redirect("~/Pages/Home");
             }
             catch (Exception ex)
             {

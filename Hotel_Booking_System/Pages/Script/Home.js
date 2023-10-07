@@ -183,14 +183,16 @@ function toggleForm() {
 }
 
 //handle submit of the booking form 
-async function handleSubmit () {
+async function handleSubmit() {
     bookingData.from = calander1.value;
     bookingData.to = calander2.value
     console.log(bookingData);
     const jsonData = await JSON.stringify(bookingData);
     document.getElementById(hiddenInputClientId).value = jsonData;
-    window.alert(hiddenInputClientId, complexDataClientId);
+    var form = document.getElementById("toggle-form");
+    form.style.display = "none"
     document.getElementById(complexDataClientId).click();
+
 }
 //image showing from 1 to 12
 var img_content = document.getElementById("image-content");
@@ -239,124 +241,43 @@ function showLessInfo() {
 
 
 //carosoul data
-var cards = [
-    {
-        title: "Luxury Room Garden Non Lake View",
-        image: "Luxury Room Garden Non Lake View",
-        defaultText: "Luxury Rooms offer princely-inspired décor with stunning views of the Lily Pond. Each room is unique in size and is adorned with traditional Indian silks and dark teak furniture.",
-        showMoreText: "",
-        area: "21-33 Sq Mt",
-        wifi: "Inclusive of WiFi",
-        gauest: "Up to 2 guests",
-        bedtype: "King/Twin",
-        price: "₹ 37,500 *"
-    }, 
-    {
-        title: "Luxury Room Lake View",
-        image: "Luxury Room Lake View",
-        defaultText: "Luxury Rooms have a princely-inspired décor with wooden lattice & araish work ceilings and discrete niches. They offer views of",
-        showMoreText: "Luxury Rooms have a princely-inspired décor with wooden lattice & araish work ceilings and discrete niches. They offer views of the placid waters of Lake Pichola. Each room is unique in size and is adorned with traditional Indian silks and dark teak furniture.",
-        area: "24-31 Sq Mt",
-        wifi: "Inclusive of WiFi",
-        gauest: "Up to 2 guests",
-        bedtype: "King/Twin",
-        price: "₹ 47,500 *"
-    },
-    {
-        title: "Palace Room Lake View",
-        image: "Palace Room Lake View",
-        defaultText: "Palace Rooms have a princely-inspired décor with wooden lattice & araish work ceilings and discrete niches. They offer views of ",
-        showMoreText: "Palace Rooms have a princely-inspired décor with wooden lattice & araish work ceilings and discrete niches. They offer views of the placid waters of Lake Pichola. Each room is unique in size and is adorned with traditional Indian silks and dark teak furniture.",
-        area: "28-42 Sq Mt",
-        wifi: " Inclusive of WiFi",
-        gauest: "Up to 3 guests",
-        bedtype: "King/Twin",
-        price: "₹ 52,500 *"
-    },
-    {
-        title: "Historical 1 Bedroom Suite Lake View",
-        image: "Historical 1 Bedroom Suite Lake View",
-        defaultText: "The Historical Suites present a welcoming ambience with marble floors, exquisite Rajasthani artwork and sheer fabrics, which enable",
-        showMoreText: "The Historical Suites present a welcoming ambience with marble floors, exquisite Rajasthani artwork and sheer fabrics, which enable crisp sunlight to enhance the beauty of each room. A four-poster bed, a sitting area overlooking Lake Pichola, a walk-in wardrobe and a spacious bathroom make these suites ideal for the discerning leisure traveler. Suite Names are Rang Mahal, Sandhya & Sisarma Darshan.",
-        area: "42-61 Sq Mt",
-        wifi: "Inclusive of WiFi",
-        gauest: "Up to 3 guests",
-        bedtype: "King",
-        price: "₹ 64,000 *"
-    },
-    {
-        title: "Royal Suite 1 Bedroom Lake View",
-        image: "Royal Suite 1 Bedroom Lake View",
-        defaultText: "Outfitted in impeccable designs, each of the Royal Suites are adorned with stained glass windows offering stunning views of the lake",
-        showMoreText: "Outfitted in impeccable designs, each of the Royal Suites are adorned with stained glass windows offering stunning views of the lake and the Aravali mountain range. Suite Names are Basant Bahar, Machla Magra, Jag Mandir Darshan & Aravali Darshan. Basant Bahar and Jag Mandir Darshan are interconnected.",
-        area: "53-59 Sq Mt",
-        wifi: " Inclusive of WiFi",
-        gauest: "Up to 3 guests",
-        bedtype: "King",
-        price: "₹ 1,07,600 *"
-    },
-    {
-        title: "Grand Royal Suite 1 Bedroom Lake View",
-        image: "Grand Royal Suite 1 Bedroom Lake View",
-        defaultText: "The Grand Royal Suites are the epitome of royal grandeur. Each of these individually themed suites feature high ceilings, deeply-car",
-        showMoreText: "The Grand Royal Suites are the epitome of royal grandeur. Each of these individually themed suites feature high ceilings, deeply-carved mouldings, ornate glasswork, and miniature paintings. Many rooms offers unique features: Jacuzzi tubs, marble clad bathrooms with switch-lite glass windows, rain-showers, original works of art, crystal chandeliers.",
-        area: "74-108 Sq Mt",
-        wifi: "Inclusive of WiFi",
-        gauest: "Up to 3 guests",
-        bedtype: "King",
-        price: "₹ 1,88,400 *"
-
-    },
-    {
-        title: "Grand Presidential Suite 1 Bedroom Lake View",
-        image: "Grand Presidential Suite 1 Bedroom Lake View",
-        defaultText: "The Shambhu Prakash suite, named after the Maharana Shambhu Singh is remembered for his progressive reforms and welfare measures und",
-        showMoreText: "The Shambhu Prakash suite, named after the Maharana Shambhu Singh is remembered for his progressive reforms and welfare measures undertaken in the 1860s. This suite is furnished with high curved arches and has a European touch to its design. The adjoining balcony offers panoramic views of the lake and hills.",
-        area: "161 Sq Mt",
-        wifi: "Inclusive of WiFi",
-        gauest: "Up to 3 guests",
-        bedtype: "King",
-        price: "₹ 4,00,000 *"
-    }
-]
 let cardsHtml = '';
 let slides = [];
-for (let i = 0; i < cards.length; i++) {
+for (let i = 0; i < RefactorRooms.length; i++) {
     let slideInnerHtml = '';
     let j = i;
-    for (j = i; j < 3 + i && j < cards.length; j++) {
-        let text = cards[j].showMoreText.length == 0 ? cards[j].defaultText : cards[j].showMoreText;
+    for (j = i; j < 3 + i && j < RefactorRooms.length; j++) {
         slideInnerHtml +=
             `
      <div class="card">
         <div class="img-cardinfo-wrapper">
             <div class="img-container">
-                <img src="../Images/Rooms/`+ cards[j].image + `.jpeg"/>
+                <img src="../Images/Rooms/`+ RefactorRooms[j].Type + `.jpeg"/>
             </div>
             <div class="card-info">
-                <span>`+ cards[j].title + `</span>
-                <p>`+ text + `</p>
+                <span>`+ RefactorRooms[j].Type + `</span>
+                <p>`+ RefactorRooms[j].Desc + `</p>
                 <div>
                     <img src="../Images/area.png"/>
-                    <span>`+ cards[j].area + `</span>
+                    <span>`+ RefactorRooms[j].Area + `</span>
                 </div>
                 <div>
                     <img src="../Images/wifi.png"/>
-                    <span>`+ cards[j].wifi + `</span>
+                    <span>Inclusive of WiFi</span>
                 </div>
                 <div>
                     <img src="../Images/maximumOccoumpany.png"/>
-                    <span>`+ cards[j].gauest + `</span>
+                    <span> Up to `+ RefactorRooms[j].Capasity +`  guests</span>
                 </div>
                 <div>
                     <img src="../Images/bedType.png"/>
-                    <span>`+ cards[j].bedtype + `</span>
+                    <span>`+ RefactorRooms[j].Bedtype + `</span>
                 </div>
             </div>
         </div>
         <div class="price">
             <p>Starting Rate/Night</p>
-            <div>`+ cards[j].price + `</div>
+            <div> `+ RefactorRooms[j].Price.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) + `*</div>
             <button type="button">VIEW DETAILS</button>
         </div>
     </div>

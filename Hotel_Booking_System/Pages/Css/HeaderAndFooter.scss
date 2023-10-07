@@ -48,7 +48,9 @@ nav {
             padding-right: 2rem;
             //border-bottom: 2px solid ;
             transition: border-bottom 0.3s ease;
-
+            a{
+                color:black;
+            }
             input {
                 outline: none;
                 border: none;

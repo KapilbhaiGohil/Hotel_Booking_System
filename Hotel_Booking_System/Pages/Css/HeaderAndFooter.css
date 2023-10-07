@@ -43,6 +43,9 @@ nav .content-right .right-links {
   padding-right: 2rem;
   transition: border-bottom 0.3s ease;
 }
+nav .content-right .right-links a {
+  color: black;
+}
 nav .content-right .right-links input {
   outline: none;
   border: none;

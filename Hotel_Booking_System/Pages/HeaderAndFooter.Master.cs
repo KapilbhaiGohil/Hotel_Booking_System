@@ -36,7 +36,7 @@ namespace Hotel_Booking_System.Pages
             Session["user"] = null;
             Session.Clear();
             Session.Abandon();
-            Response.Redirect(Request.RawUrl);
+            Response.Redirect("~/Pages/Home");
         }
         protected void complexData_Click(object sender, EventArgs e)
         {

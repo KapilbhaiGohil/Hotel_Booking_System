@@ -58,17 +58,17 @@
                 <div class="first-row">
                     <div>
                         <label for="">FirstName*</label>
-                        <input id="firstname" type="text" />
+                        <input required="true" id="firstname" type="text" />
                     </div>
                     <div>
                         <label for="">LastName*</label>
-                        <input  id="lastname" type="text" />
+                        <input required="true" id="lastname" type="text" />
                     </div>
                 </div>
                 <div class="second-row">
                     <div>
                         <label for="">Email*</label>
-                        <input id="email" type="email" />
+                        <input required="true" id="email" type="email" />
                     </div>
                     <div>
                         <label for="">Country*</label>
@@ -77,12 +77,15 @@
                     </div>
                     <div>
                         <label for="">Phone Number*</label>
-                        <input id="number" type="number" />
+                        <input required="true" id="number" type="number" />
                     </div>
                 </div>
                 <div class="third-row">
-                    <label for="">Special Requests</label>
-                    <textarea id="specialrequest"></textarea>
+                    <div>
+                        <label for="">Special Requests</label>
+                        <textarea style="width: 52.5rem; height: 10rem;    padding: 1rem;"
+                            id="specialrequest"></textarea>
+                    </div>
                 </div>
                 <div class="agreement">
                     <div>
@@ -98,8 +101,8 @@
                 </div>
             </div>
             <div class="final-button-container">
-                 <input type="hidden" runat="server" id="hiddenField" />
-                <asp:Button runat="server" style="display:none" ID="finalBookButton" OnClick="finalBookButton_Click"/>
+                <input type="hidden" runat="server" id="hiddenField" />
+                <asp:Button runat="server" Style="display: none" ID="finalBookButton" OnClick="finalBookButton_Click" />
                 <input onclick="BookARoom()" type="button" value="Book" />
             </div>
         </div>

@@ -130,4 +130,7 @@
             <p>Taj Lake Palace, Udaipur is conveniently located within touching distance to prominent tourist attractions in and around Udaipur. Our palace hotel in Udaipur is also the perfect destination for a blissful getaway from Delhi, Jaipur & Ahmedabad. Enjoy our warm hospitality and service that make you feel at home. Explore the all meals inclusive 4D Travel offer to plan your next stay.</p>
         </div>
     </div>
+    <script type="text/javascript">
+        let RefactorRooms = <%=Session["RefactorRooms"] ?? "" %>;
+    </script>
 </asp:Content>

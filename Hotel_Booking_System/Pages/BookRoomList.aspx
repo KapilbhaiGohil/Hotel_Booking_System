@@ -35,6 +35,7 @@
 
     </div>
     <script type="text/javascript">
+        let RefactorRooms = <%=Session["RefactorRooms"] ?? "" %>;
         let jsrooms = <%=Session["jsrooms"] ?? "''"%>
         let requiredRooms = <%=Session["requiredRooms"] ?? "''" %>
                 console.log(jsrooms, requiredRooms);

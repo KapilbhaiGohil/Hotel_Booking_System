@@ -85,48 +85,47 @@ const TotalDays = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
 console.log(jsrooms);
 let totalrooms = document.getElementById("totalRooms");
 let html = "";
-for (let j = 0; j < rooms.length; j++) {
-    let text = rooms[j].showMoreText.length == 0 ? rooms[j].defaultText : rooms[j].showMoreText;
-    const numericPrice = parseInt(rooms[j].price.replace(/[^0-9.*]/g, '')) * TotalDays;
+for (let j = 0; j < RefactorRooms.length; j++) {
+    const numericPrice = parseInt(RefactorRooms[j].Price) * TotalDays;
     html += `
      <div class="room-outer">
         <div class="room-image">
-            <img src="../Images/Rooms/`+ rooms[j].image + `.jpeg"/>
+            <img src="../Images/Rooms/`+ RefactorRooms[j].Type + `.jpeg"/>
         </div>
 
         <div class="room-details">
             <div class="heading">
-                <span>`+ rooms[j].title + `</span>
+                <span>`+ RefactorRooms[j].Type + `</span>
             </div>
             <div class="text-content">
-                <p> `+ text + `</p>
+                <p> `+ RefactorRooms[j].Desc + `</p>
             </div>
             <div class="room-facilities">
                 <div class="facilities">
                     <div>
                         <div>
                             <img src="../Images/area.png" />
-                            <p>`+ rooms[j].area + `</p>
+                            <p>`+ RefactorRooms[j].Area + `</p>
                         </div>
                         <div>
                             <img src="../Images/wifi.png" />
-                            <p>`+ rooms[j].wifi + `</p>
+                            <p>Inclusive Wifi</p>
                         </div>
 
                     </div>
                     <div>
                         <div>
                             <img src="../Images/maximumOccoumpany.png" />
-                            <p>`+ rooms[j].gauest + `</p>
+                            <p>Up to `+ RefactorRooms[j].Capasity +`  guest</p>
                         </div>
                         <div>
                             <img src="../Images/bedType.png" />
-                            <p>`+ rooms[j].bedtype + `</p>
+                            <p>`+ RefactorRooms[j].Bedtype + `</p>
                         </div>
 
                     </div>
                 </div>`
-    if (!isAvailable(rooms[j].title)/*condition for the room should show price or not*/) {
+    if (!isAvailable(RefactorRooms[j].Type)/*condition for the room should show price or not*/) {
         html += `
                <div class="price">
                     <p style="    width: 22rem;text-align: justify;font-weight: bold;">
@@ -141,7 +140,7 @@ for (let j = 0; j < rooms.length; j++) {
                <div class="price">
                 <span>&#x20B9; `+ numericPrice.toLocaleString() + `</span>
  <p>Starting Rate/Night</p>
- <input type="button" onclick="addToCart('`+ rooms[j].title + `','` + numericPrice + `')" value="Select Room" />
+ <input type="button" onclick="addToCart('`+ RefactorRooms[j].Type + `','` + numericPrice + `')" value="Select Room" />
                </div>
             </div>
         </div>
@@ -275,3 +274,6 @@ function handleBookingDataSubmit() {
         document.getElementById(complexDataForBookingDataClientId).click(); 
     }
 };
+
+
+console.log("This is a RefactorRooms : ", RefactorRooms)

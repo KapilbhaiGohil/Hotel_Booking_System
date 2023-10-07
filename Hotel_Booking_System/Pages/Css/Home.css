@@ -445,7 +445,7 @@
   justify-content: space-between;
   align-items: flex-end;
   border-radius: 1.5rem;
-  background-color: #e9e5df;
+  background-color: white;
 }
 .card-outer .onescreen .card .img-cardinfo-wrapper .img-container {
   padding: 1rem;
