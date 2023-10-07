@@ -73,7 +73,7 @@
         showMoreText: "The Shambhu Prakash suite, named after the Maharana Shambhu Singh is remembered for his progressive reforms and welfare measures undertaken in the 1860s. This suite is furnished with high curved arches and has a European touch to its design. The adjoining balcony offers panoramic views of the lake and hills.",
         area: "161 Sq Mt",
         wifi: "Inclusive of WiFi",
-        gauest: "Up to 3 guests",
+        gauest: "Up to 4 guests",
         bedtype: "King",
         price: "₹ 4,00,000 *"
     }

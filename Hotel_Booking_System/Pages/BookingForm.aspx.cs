@@ -1,6 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using Hotel_Booking_System.Database;
+using Hotel_Booking_System.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -8,6 +12,7 @@ using System.Web.UI.WebControls;
 
 namespace Hotel_Booking_System.Pages
 {
+
     public class FinalStorageData
     {
         public DateTime checkin;
@@ -30,6 +35,7 @@ namespace Hotel_Booking_System.Pages
     }
     public partial class BookingForm : System.Web.UI.Page
     {
+        private readonly string connectionString = ConfigurationManager.ConnectionStrings["Hotelconnection"].ConnectionString;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -38,44 +44,68 @@ namespace Hotel_Booking_System.Pages
         protected void finalBookButton_Click(object sender, EventArgs e)
         {
             FinalStorageData dt = JsonConvert.DeserializeObject<FinalStorageData>(hiddenField.Value);
-
-            // Print the deserialized data
-            Response.Write("Check-in Date: " + dt.checkin.ToString());
-            Response.Write("<br/>");
-            Response.Write("Check-out Date: " + dt.checkout.ToString());
-            Response.Write("<br/>");
-            Response.Write("Price: " + dt.price);
-            Response.Write("<br/>");
-            Response.Write("Total Days: " + dt.totaldays);
-            Response.Write("<br/>");
-
-            Response.Write("Rooms:");
-
-            // Loop through the rooms and print their details
-            foreach (RoomData room in dt.rooms)
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlTransaction transaction = con.BeginTransaction();
+            try
             {
-                Response.Write("<br/>");
-                Response.Write("Heading: " + room.heading);
-                Response.Write("<br/>");
-                Response.Write("Price: " + room.price);
-                Response.Write("<br/>");
-                Response.Write("Adults: " + room.adults);
-                Response.Write("<br/>");
-                Response.Write("Children: " + room.children);
-                Response.Write("<br/>");
+                List<int> ConfliectResIds = new ReservationDAO().getAllReservationConflicts(dt.checkin, dt.checkout);
+                string insertQuery = "INSERT INTO reservation (checkin, checkout, amount, firstname, lastname, email, phone, specialRequest) " +
+                    "VALUES (@checkin, @checkout, @amount, @firstname, @lastname, @email, @phone, @specialRequest);SELECT SCOPE_IDENTITY();";
+                SqlCommand command = new SqlCommand(insertQuery, con, transaction);
+                command.Parameters.AddWithValue("@checkin", dt.checkin);
+                command.Parameters.AddWithValue("@checkout", dt.checkout);
+                command.Parameters.AddWithValue("@amount", dt.price);
+                command.Parameters.AddWithValue("@firstname", dt.firstname);
+                command.Parameters.AddWithValue("@lastname", dt.lastname);
+                command.Parameters.AddWithValue("@email", dt.email);
+                command.Parameters.AddWithValue("@phone", dt.number);
+                command.Parameters.AddWithValue("@specialRequest", dt.specialrequest);
+                int reservationId = Convert.ToInt32(command.ExecuteScalar());
+                List<int> AddedIds = new List<int>();
+                string getEachRoomIdQeryCopy = @"select top(1) id from eachroom where RoomTypeId = 
+                        (
+	                        select id from room where type = @roomType
+                        ) and id in (select id from eachroom where id not in(
+	                        select eachroomid from reservationeachroom where reservationid in ({0})
+                        )) and id not in ({1});";
+                foreach (RoomData room in dt.rooms)
+                {   
+                    string conflictedRoomsParam = ConfliectResIds.Count > 0 ? string.Join(",", ConfliectResIds) : "NULL";
+                    string alreadyAddedIds = AddedIds.Count > 0 ? string.Join(",", AddedIds) : "-1";
+                    string getEachRoomIdQery = string.Format(getEachRoomIdQeryCopy, conflictedRoomsParam, alreadyAddedIds);
+                    Response.Write(getEachRoomIdQery +" \n<br>");
+                    SqlCommand geteachroomidcmd = new SqlCommand(getEachRoomIdQery, con, transaction);
+                    geteachroomidcmd.Parameters.AddWithValue("@roomType", room.heading);
+                   
+                    int eachRoomId = Convert.ToInt32(geteachroomidcmd.ExecuteScalar());
+                    Response.Write("<h5>" + eachRoomId + "</h5><br>");
+                    Response.Write("<h5>" + reservationId + "</h5><br>");
+                    string insertIntoReservationRoom = "INSERT INTO reservationeachroom (reservationid, eachroomid, adult, children, price) " +
+                      "VALUES (@ReservationId, @EachRoomId, @Adult, @Children, @Price);SELECT SCOPE_IDENTITY();";
+                    SqlCommand cmd = new SqlCommand(insertIntoReservationRoom, con, transaction);
+                    cmd.Parameters.AddWithValue("@ReservationId", reservationId);
+                    cmd.Parameters.AddWithValue("@EachRoomId", eachRoomId);
+                    cmd.Parameters.AddWithValue("@Adult", room.adults);
+                    cmd.Parameters.AddWithValue("@Children", room.children);
+                    cmd.Parameters.AddWithValue("@Price", room.price);
+                    int newid = Convert.ToInt32(cmd.ExecuteScalar());
+                    Response.Write("<h5>" + newid + "</h5><br>");
+                    AddedIds.Add(eachRoomId);
+
+                }
+                transaction.Commit();
             }
-
-            // Print other data
-            Response.Write("First Name: " + dt.firstname);
-            Response.Write("<br/>");
-            Response.Write("Last Name: " + dt.lastname);
-            Response.Write("<br/>");
-            Response.Write("Email: " + dt.email);
-            Response.Write("<br/>");
-            Response.Write("Phone: " + dt.number);
-            Response.Write("<br/>");
-            Response.Write("Special Request: " + dt.specialrequest);
-
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                Response.Write(ex);
+            }
+            finally
+            {
+                con.Close();
+                transaction.Dispose();
+            }
         }
     }
 }

@@ -3,6 +3,7 @@ using Hotel_Booking_System.Models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
@@ -90,6 +91,39 @@ namespace Hotel_Booking_System.Database
             cmd.Dispose();
             con.Close();
             return  ans;
+        }
+        public List<Room> getAvailabeRooms(int noOfRooms,int minCapasity,List<int>ConflictedResIds)
+        {
+            List<Room> ans = new List<Room>();
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            string query = @"select * from room where id in (
+                                select roomtypeid from eachroom where id not in (
+                                       select id from eachroom where id in(
+                                            select eachroomid from reservationeachroom where reservationid in ({0}))
+                                )group by roomtypeid  having count(*) >= @noOfRooms
+                           ) and capasity >= @minCapasity;";
+           
+            string conflictedRoomsParam = ConflictedResIds.Count > 0 ? string.Join(",",ConflictedResIds):"NULL";
+            query = string.Format(query,conflictedRoomsParam);
+            SqlCommand cmd = new SqlCommand(@query, con);
+            cmd.Parameters.AddWithValue("@minCapasity",minCapasity);
+            cmd.Parameters.AddWithValue("@noOfRooms",noOfRooms);
+            SqlDataReader rdr = cmd.ExecuteReader();
+            while (rdr.Read())
+            {
+                string id = rdr["ID"].ToString();
+                string type = rdr["type"].ToString();
+                string desc = rdr["desc"].ToString();
+                string area = rdr["area"].ToString();
+                string capasity = rdr["capasity"].ToString();
+                string price = rdr["price"].ToString();
+                string bedtype = rdr["bedtype"].ToString();
+                ans.Add(new Room(Int32.Parse(id), type, desc, area, Int32.Parse(capasity), Int32.Parse(price), bedtype));
+            }
+            cmd.Dispose();
+            con.Close();
+            return ans;
         }
     }
 }

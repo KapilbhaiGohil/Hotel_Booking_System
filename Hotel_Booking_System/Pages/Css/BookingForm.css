@@ -63,6 +63,8 @@ body {
   text-align: center;
 }
 .booking-form-outer .booking-cover .booking-form-uppe .booking-data .booking-body .booking-rooms {
+  overflow-y: scroll;
+  max-height: 10rem;
   padding: 1rem;
 }
 .booking-form-outer .booking-cover .booking-form-uppe .booking-data .booking-body .booking-rooms .booking-data-info {
@@ -88,6 +90,10 @@ body {
 .booking-form-outer .booking-cover .booking-form-lower .booking-lower-heading {
   text-align: center;
   padding: 1rem 0 0.4rem 0;
+}
+.booking-form-outer .booking-cover .booking-form-lower .selectedRoomId {
+  overflow-y: scroll;
+  max-height: 20rem;
 }
 .booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual {
   display: flex;
@@ -222,6 +228,7 @@ body {
   padding-left: 1rem;
 }
 .travellers-details-outer .travellers-form .final-button-container {
+  cursor: pointer;
   padding: 1rem 0;
 }
 .travellers-details-outer .travellers-form .final-button-container input {

@@ -18,7 +18,7 @@ namespace Hotel_Booking_System.Pages
     }
     public class BookingData
     {
-        List<MembersInfo> Rooms { get; set; }
+        public List<MembersInfo> Rooms { get; set; }
         public DateTime from { get; set; }
         public DateTime to { get; set; }
     }
@@ -42,24 +42,17 @@ namespace Hotel_Booking_System.Pages
         {
             string jsondata = hiddenInput.Value;
             BookingData b = JsonConvert.DeserializeObject<BookingData>(jsondata);
-            //first of all getall the booking infos
-            List<Reservation> allres = reservationDAO.GetALlReservationIds();
-            List<Reservation> conflictedRes = new List<Reservation>();
-            foreach(Reservation reservation in allres)
-            {
-                if(reservation.checkin <= b.to && reservation.checkout >= b.from) { 
-                    conflictedRes.Add(reservation);
-                    Response.Write(reservation.Id);
-                }
-            }
-            List<Room>rooms = roomDAO.GetRooms();
+
+            List<int> conflictedResIds = reservationDAO.getAllReservationConflicts(b.from,b.to);
+            List<Room>rooms = roomDAO.getAvailabeRooms(b.Rooms.Count,b.Rooms.Max(room=>room.adult),conflictedResIds);
+
             JavaScriptSerializer javaScriptSerializer = new JavaScriptSerializer();
             string jsrooms = javaScriptSerializer.Serialize(rooms);
             Session["jsrooms"] = jsrooms;
             Session["requiredRooms"] = jsondata;
             Session["checkin"] = b.from.Date.ToString("yyyy-MM-dd");
             Session["checkout"] = b.to.Date.ToString("yyyy-MM-dd");
-            //Response.Redirect("~/Pages/BookRoomList");
+            Response.Redirect("~/Pages/BookRoomList");
         }
 
     }

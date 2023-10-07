@@ -8,53 +8,17 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace Hotel_Booking_System.Database
 {
     public class ReservationDAO
     {
         private readonly string connectionString = ConfigurationManager.ConnectionStrings["Hotelconnection"].ConnectionString;
-        public bool addReservation(FinalStorageData dt,RoomDAO rd)
-        {
-            SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
-            SqlTransaction transaction = con.BeginTransaction();
-            try
-            {
-                string insertQuery = "INSERT INTO [dbo].[reservation] (checkin, checkout, amount, firstname, lastname, email, phone, specialRequest) " +
-                         "VALUES (@checkin, @checkout, @amount, @firstname, @lastname, @email, @phone, @specialRequest)";
-                SqlCommand command = new SqlCommand(insertQuery, con);
-                command.Parameters.AddWithValue("@checkin", dt.checkin);
-                command.Parameters.AddWithValue("@checkout", dt.checkout);
-                command.Parameters.AddWithValue("@amount", dt.price);
-                command.Parameters.AddWithValue("@firstname", dt.firstname);
-                command.Parameters.AddWithValue("@lastname", dt.lastname);
-                command.Parameters.AddWithValue("@email", dt.email);
-                command.Parameters.AddWithValue("@phone", dt.number);
-                command.Parameters.AddWithValue("@specialRequest", dt.specialrequest);
-                int reservationId = Convert.ToInt32(command.ExecuteScalar());
-                foreach(RoomData room in dt.rooms)
-                {
-                    string insertIntoReservationRoom = "INSERT INTO reservationeachroom (reservationid, eachroomid, adult, children, price) " +
-                         "VALUES (@ReservationId, @EachRoomId, @Adult, @Children, @Price)";
-                    int id = rd.getFreeRoomIdByRoomHeading(room.heading);
-                    SqlCommand cmd = new SqlCommand(insertIntoReservationRoom, con);
-                    command.Parameters.AddWithValue("@ReservationId", reservationId);
-                    command.Parameters.AddWithValue("@EachRoomId", 3);
-                    command.Parameters.AddWithValue("@Adult", 2);
-                    command.Parameters.AddWithValue("@Children", 1);
-                    command.Parameters.AddWithValue("@Price", "100.00");
-                }
-            }
-            catch (Exception ex)
-            {
-                transaction.Rollback();
-                throw ex;
-            }
+       
 
-            return false;
-        }
-        public List<Reservation> GetALlReservationIds ()
+
+        public List<Reservation> GetALlReservationIds()
         {
             List<Reservation> reservationIds = new List<Reservation>();
             SqlConnection con = new SqlConnection(connectionString);
@@ -73,14 +37,26 @@ namespace Hotel_Booking_System.Database
             cmd.Dispose();
             return reservationIds;
         }
-       
+        public List<int> getAllReservationConflicts(DateTime checkin, DateTime checkout)
+        {
+            List<int> conflictedResIds = new List<int>();
+            List<Reservation> allres = new ReservationDAO().GetALlReservationIds();
+            foreach (Reservation reservation in allres)
+            {
+                if (reservation.checkin <= checkout && reservation.checkout >= checkin)
+                {
+                    conflictedResIds.Add(reservation.Id);
+                }
+            }
+            return conflictedResIds;
+        }
         public void template()
         {
             SqlConnection con = new SqlConnection(connectionString);
             con.Open();
             string query = "";
             SqlCommand cmd = new SqlCommand(@query, con);
-            
+
             SqlDataReader rdr = cmd.ExecuteReader();
             cmd.Dispose();
             con.Close();

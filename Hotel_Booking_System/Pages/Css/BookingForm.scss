@@ -73,6 +73,8 @@ body {
 
 
                     .booking-rooms {
+                        overflow-y: scroll;
+                        max-height: 10rem;
                         padding: 1rem;
 
                         .booking-data-info {
@@ -104,12 +106,16 @@ body {
         }
 
         .booking-form-lower {
+
             .booking-lower-heading {
                 text-align: center;
                 padding: 1rem 0 0.4rem 0;
             }
 
             .selectedRoomId {
+                overflow-y: scroll;
+                max-height: 20rem;
+
                 .booking-lower-visual {
                     display: flex;
                     justify-content: space-between;
