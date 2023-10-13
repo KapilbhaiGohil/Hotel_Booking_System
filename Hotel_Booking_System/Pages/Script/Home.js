@@ -186,13 +186,12 @@ function toggleForm() {
 async function handleSubmit() {
     bookingData.from = calander1.value;
     bookingData.to = calander2.value
-    console.log(bookingData);
+    console.log("This is Booking information"+bookingData);
     const jsonData = await JSON.stringify(bookingData);
     document.getElementById(hiddenInputClientId).value = jsonData;
     var form = document.getElementById("toggle-form");
-    form.style.display = "none"
+    form.style.display = "none";
     document.getElementById(complexDataClientId).click();
-
 }
 //image showing from 1 to 12
 var img_content = document.getElementById("image-content");
@@ -278,7 +277,7 @@ for (let i = 0; i < RefactorRooms.length; i++) {
         <div class="price">
             <p>Starting Rate/Night</p>
             <div> `+ RefactorRooms[j].Price.toLocaleString('en-IN', { style: 'currency', currency: 'INR' }) + `*</div>
-            <button type="button">VIEW DETAILS</button>
+            <button type="button" onclick="handleSubmit()">VIEW RATES</button>
         </div>
     </div>
     `

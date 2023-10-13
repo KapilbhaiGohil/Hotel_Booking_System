@@ -230,7 +230,6 @@ body {
   padding-left: 1rem;
 }
 .travellers-details-outer .travellers-form .final-button-container {
-  cursor: pointer;
   padding: 1rem 0;
 }
 .travellers-details-outer .travellers-form .final-button-container input {
@@ -243,6 +242,7 @@ body {
   background: #aa7938;
   color: white;
   border-radius: 0.5rem;
+  cursor: pointer;
 }
 
 /*# sourceMappingURL=BookingForm.css.map */

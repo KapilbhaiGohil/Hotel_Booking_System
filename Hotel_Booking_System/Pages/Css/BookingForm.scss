@@ -294,7 +294,6 @@ body {
         }
 
         .final-button-container {
-            cursor: pointer;
 
             input {
                 outline: none;
@@ -306,6 +305,7 @@ body {
                 background: $btncolordark;
                 color: white;
                 border-radius: 0.5rem;
+                cursor: pointer;
             }
 
             padding: 1rem 0;

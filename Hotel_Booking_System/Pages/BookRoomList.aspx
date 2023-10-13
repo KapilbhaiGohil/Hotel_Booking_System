@@ -38,10 +38,9 @@
         let RefactorRooms = <%=Session["RefactorRooms"] ?? "" %>;
         let jsrooms = <%=Session["jsrooms"] ?? "''"%>
         let requiredRooms = <%=Session["requiredRooms"] ?? "''" %>
-                console.log(jsrooms, requiredRooms);
         var complexDataForBookingDataClientId = "<%= complexDataForBookingData.ClientID %>";
         var hiddenInputForBookingDataClientId = '<%= hiddenInputForBookingData.ClientID %>';
-
+        
     </script>
     <script src="Script/BookRoom.js"></script>
 </asp:Content>

@@ -28,7 +28,7 @@ namespace Hotel_Booking_System.Pages
         ReservationDAO reservationDAO = new ReservationDAO();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         protected void logout_Click(object sender, EventArgs e)
@@ -52,8 +52,11 @@ namespace Hotel_Booking_System.Pages
             Session["requiredRooms"] = jsondata;
             Session["checkin"] = b.from.Date.ToString("yyyy-MM-dd");
             Session["checkout"] = b.to.Date.ToString("yyyy-MM-dd");
+            Session["roomsSize"] = b.Rooms.Count;
+            Session["gauest"] = b.Rooms.Sum(room => room.adult);
+            Session["child"] = b.Rooms.Sum(room => room.children);
             Response.Redirect("~/Pages/BookRoomList");
+            
         }
-
     }
 }

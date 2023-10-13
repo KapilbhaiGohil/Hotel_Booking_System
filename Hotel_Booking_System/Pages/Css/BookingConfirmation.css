@@ -1,0 +1,65 @@
+.main-confirm {
+  margin: 1rem 7rem;
+}
+.main-confirm .half-confirm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.main-confirm .half-confirm > div {
+  width: 100%;
+  text-align: center;
+}
+.main-confirm .half-confirm .image-confirm img {
+  width: 11%;
+}
+.main-confirm .half-confirm .head-confirm h1 {
+  font-weight: bold;
+  color: #323232;
+  font-size: 2.3rem;
+  line-height: 1.2;
+  margin: 1rem 0;
+  letter-spacing: 3px;
+  text-decoration: underline;
+}
+.main-confirm .lower-half-confirm .general-confi {
+  color: #aa7938;
+  font-size: 1.2rem;
+}
+.main-confirm .lower-half-confirm .general-confi p {
+  margin: 0.6rem 0;
+}
+.main-confirm .lower-half-confirm .details-confirm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.main-confirm .lower-half-confirm .details-confirm .head-details-confirm h3 {
+  font-size: 1.7rem;
+  text-decoration: underline;
+  font-weight: normal;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  box-shadow: 0 0px 7px 4px rgba(157, 90, 13, 0.5);
+  padding: 1rem;
+  margin-top: 2rem;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm > div {
+  margin-right: 3rem;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm > div > div {
+  padding: 0.3rem 0;
+}
+.main-confirm .lower-half-confirm .details-confirm .info-confirm > div > .info-head {
+  color: #bc7407;
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+
+/*# sourceMappingURL=BookingConfirmation.css.map */

@@ -263,7 +263,6 @@ function handleBookingDataSubmit() {
         window.alert("Pls Select All Rooms");
     } else {
         const TotalBill = parseInt((document.getElementById("finalprice").textContent).replace(/[^0-9.*]/g, ''));
-        window.alert(TotalBill);
         FinalBookingDataObject.price = TotalBill;
         FinalBookingDataObject.checkin = requiredRooms.from;
         FinalBookingDataObject.checkout = requiredRooms.to;

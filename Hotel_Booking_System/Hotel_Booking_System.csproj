@@ -139,6 +139,7 @@
     <Content Include="Images\children.png" />
     <Content Include="Images\close %281%29.png" />
     <Content Include="Images\close.png" />
+    <Content Include="Images\confirmBooking.png" />
     <Content Include="Images\footer\ama.png" />
     <Content Include="Images\footer\ginger.png" />
     <Content Include="Images\footer\min.png" />
@@ -198,6 +199,7 @@
     <Content Include="Images\tajBookForm.jpeg" />
     <Content Include="Images\twitter.png" />
     <Content Include="Images\wifi.png" />
+    <Content Include="Pages\BookingConfirmation.aspx" />
     <Content Include="Pages\BookingForm.aspx" />
     <Content Include="Pages\BookRoomList.aspx" />
     <Content Include="Pages\Home.aspx" />
@@ -205,6 +207,7 @@
     <Content Include="Pages\Register.aspx" />
     <Content Include="Pages\Script\BookingForm.js" />
     <Content Include="Pages\Script\BookRoom.js" />
+    <Content Include="Pages\Script\confirmBook.js" />
     <Content Include="Pages\Script\Home.js" />
     <Content Include="Pages\Script\login.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -243,6 +246,7 @@
     <Content Include="Pages\Css\Register.scss" />
     <Content Include="Pages\Css\BookRoom.scss" />
     <Content Include="Pages\Css\BookingForm.scss" />
+    <Content Include="Pages\Css\BookingConfirmation.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -309,6 +313,13 @@
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Pages\BookingConfirmation.aspx.cs">
+      <DependentUpon>BookingConfirmation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BookingConfirmation.aspx.designer.cs">
+      <DependentUpon>BookingConfirmation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BookingForm.aspx.cs">
       <DependentUpon>BookingForm.aspx</DependentUpon>
     </Compile>

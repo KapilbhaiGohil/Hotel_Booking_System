@@ -5,7 +5,6 @@ if (finalBookingData == "") {
 }
 
 console.log(finalBookingData);
-window.alert(finalBookingData)
 let finalBookingDataCheckin = document.getElementById("finalBookingDataCheckin")
 let finalBookingDataCheckout = document.getElementById("finalBookingDataCheckout")
 let dayAndNight = document.getElementById("dayAndNight");

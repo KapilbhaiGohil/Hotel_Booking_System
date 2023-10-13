@@ -87,7 +87,7 @@
                             id="specialrequest"></textarea>
                     </div>
                 </div>
-                <div class="agreement">
+                <!--<div class="agreement">
                     <div>
                         <span>
                             <img src="../Images/checkbox_unchecked.png" width=" 1.2%" /></span>
@@ -98,10 +98,10 @@
                             <img src="../Images/checkbox_unchecked.png" width=" 1.2%" /></span>
                         <span>I have read and agree to the <a>General Terms & Conditions</a>*</span>
                     </div>
-                </div>
+                </div>-->
             </div>
             <div class="final-button-container">
-                <input type="hidden" runat="server" id="hiddenField" />
+                <input type="hidden" value="hiddenbtn3" runat="server" id="hiddenField" />
                 <asp:Button runat="server" Style="display: none" ID="finalBookButton" OnClick="finalBookButton_Click" />
                 <input onclick="BookARoom()" type="button" value="Book" />
             </div>

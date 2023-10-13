@@ -30,6 +30,7 @@ nav .content-left .links {
 }
 nav .content-left .links > a {
   margin-left: 2rem;
+  color: #4a4a4a;
 }
 nav .content-right {
   display: flex;
@@ -188,6 +189,7 @@ nav a:hover {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-top: 1rem;
 }
 
 /*# sourceMappingURL=HeaderAndFooter.css.map */
