@@ -111,12 +111,21 @@ body {
   border-radius: 0.4rem;
 }
 .booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual .booking-lower-info {
+  align-self: stretch;
   width: 73%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
   color: #4a4a4a;
+}
+.booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual .booking-lower-info .booking-loewr-price-info {
+  width: 70%;
+  text-align: justify;
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 }
 .booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual .booking-lower-info .booking-loewr-price-info span {
   font-weight: bold;
@@ -129,6 +138,7 @@ body {
   justify-content: space-between;
   align-items: center;
   height: 6rem;
+  align-self: center;
 }
 .booking-form-outer .booking-cover .booking-form-lower .selectedRoomId .booking-lower-visual .booking-lower-info .booking-lower-gauest-info .man {
   display: flex;

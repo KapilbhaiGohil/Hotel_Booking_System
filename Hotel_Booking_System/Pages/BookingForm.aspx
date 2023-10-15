@@ -109,6 +109,7 @@
     </div>
     <script type="text/javascript">
         let finalBookingData = <%=Session["finalBookingData"] ?? "''"%>;
+        let jsrooms = <%=Session["jsrooms"] ?? "''"%>;
         let finalAspButton = '<%= finalBookButton.ClientID%>';
         let finalStorage = '<%= hiddenField.ClientID%>';
     </script>

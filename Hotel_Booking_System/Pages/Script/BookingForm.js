@@ -1,6 +1,7 @@
-﻿document.getElementById("home-image").style.display = 'none';
-
-if (finalBookingData == "") {
+﻿
+document.getElementById("home-image").style.display = 'none';
+console.log(jsrooms);
+if (finalBookingData == "" || jsrooms == "") {
     window.location.href = "/Pages/Home";
 }
 
@@ -67,8 +68,8 @@ function getSelectedRoomsList() {
                         <div class="booking-lower-room-img"></div>
                         <div class="booking-loewr-price-info">
                             <span>Rate description:</span>
-                            <p>Room only rate include basic Wi-Fi up to 4 Devices. Taxes extra</p>
-                            <p>Room only rate include basic Wi-Fi up to 4 Devices. Taxes extra</p>
+                            <p>${jsrooms.find((room) => room.Type === finalBookingData.rooms[i].heading).Desc}</p>
+                            <p><b>Room only rate include basic Wi-Fi up to 4 Devices. Taxes extra</b></p>
                         </div>
                         <div class="booking-lower-gauest-info">
                             <div class="man">

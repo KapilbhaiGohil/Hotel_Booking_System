@@ -13,5 +13,23 @@ namespace Hotel_Booking_System.Pages
 
     public partial class BookingConfirmation
     {
+
+        /// <summary>
+        /// print_submit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button print_submit;
+
+        /// <summary>
+        /// hiddenInnerHtml control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hiddenInnerHtml;
     }
 }

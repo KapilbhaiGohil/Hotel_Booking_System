@@ -56,8 +56,8 @@ namespace Hotel_Booking_System.Database
             try
             {
                 List<int> ConfliectResIds = new ReservationDAO().getAllReservationConflicts(dt.checkin, dt.checkout);
-                string insertQuery = "INSERT INTO reservation (checkin, checkout, amount, firstname, lastname, email, phone, specialRequest) " +
-                    "VALUES (@checkin, @checkout, @amount, @firstname, @lastname, @email, @phone, @specialRequest);SELECT SCOPE_IDENTITY();";
+                string insertQuery = "INSERT INTO reservation (checkin, checkout, amount, firstname, lastname, email, phone, specialRequest,date) " +
+                    "VALUES (@checkin, @checkout, @amount, @firstname, @lastname, @email, @phone, @specialRequest, @date);SELECT SCOPE_IDENTITY();";
                 SqlCommand command = new SqlCommand(insertQuery, con, transaction);
                 command.Parameters.AddWithValue("@checkin", dt.checkin);
                 command.Parameters.AddWithValue("@checkout", dt.checkout);
@@ -67,6 +67,7 @@ namespace Hotel_Booking_System.Database
                 command.Parameters.AddWithValue("@email", dt.email);
                 command.Parameters.AddWithValue("@phone", dt.number);
                 command.Parameters.AddWithValue("@specialRequest", dt.specialrequest);
+                command.Parameters.AddWithValue("@date", DateTime.Now);
                 int reservationId = Convert.ToInt32(command.ExecuteScalar());
                 List<int> AddedIds = new List<int>();
                 string getEachRoomIdQeryCopy = @"select top(1) id from eachroom where RoomTypeId = 
