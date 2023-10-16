@@ -1,5 +1,4 @@
-﻿
-document.getElementById("home-image").style.display = 'none';
+﻿document.getElementById("home-image").style.display = 'none';
 console.log(jsrooms);
 if (finalBookingData == "" || jsrooms == "") {
     window.location.href = "/Pages/Home";

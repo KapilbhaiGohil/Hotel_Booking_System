@@ -30,6 +30,33 @@
                 margin: 1rem 2rem;
             }
         }
+
+        .print-conform {
+            font-size: 1rem;
+            font-weight: bold;
+            padding: 1rem 0 0 0;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            float: right;
+            margin-left: 34rem;
+            width: 27%;
+
+            input {
+                padding: 1rem 2rem;
+                cursor: pointer;
+                outline: none;
+                color: $btncolordark;
+                border-radius: 0.5rem;
+                border: none;
+                background: white;
+                font-weight: bold;
+                font-size: 1rem;
+                border:2px solid $btncolordark;
+                
+            }
+        }
     }
 
     .lower-half-confirm {

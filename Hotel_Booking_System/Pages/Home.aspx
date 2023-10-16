@@ -3,11 +3,36 @@
 <asp:Content runat="server" ContentPlaceHolderID="head">
     <title>Taj Lake Palace, Udaipur - Grand Palace Hotel in Udaipur at Lake Pichola | Taj Hotels</title>
     <link rel="stylesheet" type="text/css" href="Css/Home.css" />
+    <style>
+        .error {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 12px;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            display:none;
+        }
+
+        .error-text {
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            background: green;
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="home" ContentPlaceHolderID="MainContent" runat="server">
     <div class="home-body">
         <div class="heading">
             <h1><span>Taj Lake Palace</span></h1>
+        </div>
+        <div class="error" id="error">
+            <div class="error-text" id="error-text" style="display: ">Hello This is Error msg </div>
         </div>
         <div>
             <div class="hotel-info-outer">

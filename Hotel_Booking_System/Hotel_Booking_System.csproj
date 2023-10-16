@@ -225,6 +225,7 @@
     <Content Include="Images\close %281%29.png" />
     <Content Include="Images\close.png" />
     <Content Include="Images\confirmBooking.png" />
+    <Content Include="Images\error.png" />
     <Content Include="Images\footer\ama.png" />
     <Content Include="Images\footer\ginger.png" />
     <Content Include="Images\footer\min.png" />
@@ -290,12 +291,14 @@
     <Content Include="Pages\Css\pdf.css" />
     <Content Include="Pages\Home.aspx" />
     <Content Include="Pages\Login.aspx" />
+    <Content Include="Pages\ManageBooking.aspx" />
     <Content Include="Pages\Register.aspx" />
     <Content Include="Pages\Script\BookingForm.js" />
     <Content Include="Pages\Script\BookRoom.js" />
     <Content Include="Pages\Script\confirmBook.js" />
     <Content Include="Pages\Script\Home.js" />
     <Content Include="Pages\Script\login.js" />
+    <Content Include="Pages\Script\ManageBooking.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -333,6 +336,7 @@
     <Content Include="Pages\Css\BookRoom.scss" />
     <Content Include="Pages\Css\BookingForm.scss" />
     <Content Include="Pages\Css\BookingConfirmation.scss" />
+    <Content Include="Pages\Css\ManageBoooking.scss" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -397,11 +401,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Reservation.cs" />
+    <Compile Include="Models\ReservationFull.cs" />
     <Compile Include="Models\Room.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Pages\BookingConfirmation.aspx.cs">
       <DependentUpon>BookingConfirmation.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\BookingConfirmation.aspx.designer.cs">
       <DependentUpon>BookingConfirmation.aspx</DependentUpon>
@@ -438,6 +442,13 @@
     </Compile>
     <Compile Include="Pages\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ManageBooking.aspx.cs">
+      <DependentUpon>ManageBooking.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\ManageBooking.aspx.designer.cs">
+      <DependentUpon>ManageBooking.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Register.aspx.cs">
       <DependentUpon>Register.aspx</DependentUpon>

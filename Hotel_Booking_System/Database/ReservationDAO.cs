@@ -1,10 +1,12 @@
 ﻿using Hotel_Booking_System.Models;
 using Hotel_Booking_System.Pages;
+using Org.BouncyCastle.Asn1.Mozilla;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Web;
@@ -111,6 +113,73 @@ namespace Hotel_Booking_System.Database
             {
                 con.Close();
                 transaction.Dispose();
+            }
+        }
+        public ReservationFull FindReservationByIdAndEmail(int id,string email)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            string query = "select * from reservation where id = @id and email = @email;";
+            SqlCommand cmd = new SqlCommand(query, con);
+            ReservationFull reservationsList = null;
+            try
+            {
+                cmd.Parameters.AddWithValue("@id",id);
+                cmd.Parameters.AddWithValue("@email", email);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                if (rdr.Read())
+                {
+                    reservationsList = new ReservationFull(
+                        Convert.ToInt32(rdr["id"]),
+                        DateTime.Parse(rdr["checkin"].ToString()),
+                        DateTime.Parse(rdr["checkout"].ToString()),
+                        Convert.ToInt32(rdr["amount"]),
+                        rdr["firstname"].ToString(),
+                        rdr["lastname"].ToString(),
+                        rdr["email"].ToString(),
+                        rdr["phone"].ToString(),
+                        rdr["specialrequest"].ToString(),
+                        DateTime.Parse(rdr["date"].ToString())
+                        );
+                }
+                return reservationsList;
+            }
+            catch (Exception ex) {
+                throw ex;
+            }
+            finally
+            {
+                cmd.Dispose();
+                con.Close();
+            }
+        }
+        public bool cancelReservation(int resId)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            SqlTransaction tran = con.BeginTransaction();
+            string query = "delete from reservationeachroom where reservationid = @resId;";
+            string query2 = "delete  from reservation where id = @resId;";
+            SqlCommand cmd = new SqlCommand(query, con,tran);
+            SqlCommand cmd2 = new SqlCommand(query2, con,tran);
+            try
+            {
+                cmd.Parameters.AddWithValue("@resId",resId);
+                cmd2.Parameters.AddWithValue("@resId",resId);
+                int ok = cmd.ExecuteNonQuery();
+                int ok1 = cmd2.ExecuteNonQuery();
+                tran.Commit();
+                return ok>=1 && ok1==1;
+            }
+            catch (Exception ex)
+            {
+                tran.Rollback();
+                return false;
+            }
+            finally
+            {
+                cmd.Dispose();
+                con.Close();
             }
         }
         public void template()

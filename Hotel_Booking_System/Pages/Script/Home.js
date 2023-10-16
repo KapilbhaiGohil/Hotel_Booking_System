@@ -3,7 +3,6 @@ var ele2 = document.getElementById("checkout");
 var today = new Date(new Date().setHours(0, 0, 0, 0)).toLocaleDateString('fr-CA');
 var tommorow = new Date(+new Date().setHours(0, 0, 0, 0) + 86400000).toLocaleDateString('fr-CA')
 if (ele.textContent.trim() == "" && ele2.textContent.trim() == "") {
-
     ele.innerHTML = today;
     ele2.innerHTML = tommorow;
 }
@@ -443,4 +442,20 @@ async function blink (ele) {
         }, 100);
     });
    
+}
+
+
+function showMsg(msg) {
+    console.log(msg);
+    let errorDiv = document.getElementById("error");
+    let errorText = document.getElementById("error-text");
+    errorDiv.style.display = "flex";
+    if (msg.status == 1) {
+        errorText.style.background = "red";
+    } else {
+        errorText.style.background = "green";
+    }
+    errorText.textContent = msg.info;
+    setTimeout(() => { errorDiv.style.display = "none"; }, 3000);
+
 }

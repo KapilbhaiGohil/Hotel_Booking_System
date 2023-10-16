@@ -1,4 +1,22 @@
-﻿document.getElementById("home-image").style.display = 'none';
+﻿if (reservationInfo === "") {
+    window.location.href = "/Pages/Home";
+}
+function isValidDateFormat(dateString) {
+    var regexPattern = /^\d{4}-\d{2}-\d{2}$/;
+    return regexPattern.test(dateString);
+}
+console.log(reservationInfo.checkin);
+if (isValidDateFormat(reservationInfo.checkin)) {
+    let dateStr = reservationInfo.checkin;
+    reservationInfo.checkin = new Date(reservationInfo.checkin).toLocaleDateString("en-GB");
+    reservationInfo.checkout = new Date(reservationInfo.checkout).toLocaleDateString("en-GB");
+} else {
+    reservationInfo.checkout = new Date(parseInt(reservationInfo.checkout.replace(/\/Date\((\d+)\)\//, '$1'))).toLocaleDateString("en-GB");
+    reservationInfo.checkin = new Date(parseInt(reservationInfo.checkin.replace(/\/Date\((\d+)\)\//, '$1'))).toLocaleDateString("en-GB");
+}
+console.log(reservationInfo);
+
+document.getElementById("home-image").style.display = 'none';
 let confirmContent = `
                      <div class="overview-book">
                         <div class="booking-id">
@@ -100,12 +118,7 @@ let confirmContent = `
                                     </tr>
                                 </thead>
                                 <tbody id = "tbody">
-                                    <tr>
-                                        <td>this is type</td>
-                                        <td>4</td>
-                                        <td>4</td>
-                                        <td>45999</td>
-                                    </tr>
+                                    
                                 </tbody>
                             </table>
                         </div>
@@ -123,4 +136,36 @@ for (let i = 0; i < reservationInfo.rooms.length; i++) {
                                         <td> &#x20B9; ${reservationInfo.rooms[i].price.toLocaleString()}</td>
                                     </tr>`;
 }
+roomInfoInnerHtml += `
+<tr style="background:#e3dad6;color:black;font-weight:bold;">
+    <td colspan="3">Total</td>
+    <td>&#x20B9;${reservationInfo.price}</td >
+<tr>
+`
 tbody.innerHTML = roomInfoInnerHtml;
+
+
+function captureHtmlAndSubmit() {
+    let htmlContent = document.getElementById("pdfcontent").innerHTML;
+    document.getElementById(hiddenInnerHtmlId).value =
+        `
+                   <!DOCTYPE html>
+                    <html>
+                    <head>
+                            <link rel="stylesheet" type="text/css" href="Css/pdf.css" />
+                    </head>
+                   <body>
+                `+
+        htmlContent +
+        `</body>
+                </html>
+                `;
+    console.log(document.getElementById(hiddenInnerHtmlId).value);
+    document.getElementById(print_submitId).click();
+}
+function cancelClick() {
+    if (window.confirm("Are You Sure ?")) {
+        document.getElementById(cancel_submitId).click();
+    }
+}
+

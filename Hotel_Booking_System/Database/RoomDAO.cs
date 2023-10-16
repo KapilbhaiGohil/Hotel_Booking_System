@@ -1,5 +1,6 @@
 ﻿using Antlr.Runtime.Tree;
 using Hotel_Booking_System.Models;
+using Hotel_Booking_System.Pages;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -124,6 +125,48 @@ namespace Hotel_Booking_System.Database
             cmd.Dispose();
             con.Close();
             return ans;
+        }
+        public List<RoomData> getRoomsByReservationId(int resId)
+        {
+            SqlConnection con = new SqlConnection(connectionString);
+            con.Open();
+            string query = @"SELECT
+                            re.Adult,
+                            re.Children,
+                            re.Price,
+                            ro.Type
+                        FROM
+                            reservationeachroom re
+                        JOIN
+                            eachroom er ON re.eachroomid = er.id
+                        JOIN
+                            room ro ON er.RoomTypeId = ro.id
+                        WHERE
+                            re.reservationid = @resId;
+";
+            SqlCommand cmd = new SqlCommand(@query, con);
+            List<RoomData>res = new List<RoomData>();
+            try
+            {
+                cmd.Parameters.AddWithValue("@resId",resId);
+                SqlDataReader rdr = cmd.ExecuteReader();
+                while (rdr.Read())
+                {
+                    res.Add(new RoomData(rdr["Type"].ToString(), rdr["Price"].ToString(), rdr["Adult"].ToString(), rdr["Children"].ToString()));
+                }
+                return res;
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cmd.Dispose();
+                con.Close();
+            }
+          
+           
         }
     }
 }

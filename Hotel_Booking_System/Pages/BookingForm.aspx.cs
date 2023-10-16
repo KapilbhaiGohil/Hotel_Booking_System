@@ -25,6 +25,20 @@ namespace Hotel_Booking_System.Pages
         public string email;
         public string number;
         public string specialrequest;
+        public FinalStorageData(DateTime checkin, DateTime checkout, long price, int totaldays, List<RoomData> rooms, string firstname, string lastname, string email, string number, string specialrequest)
+        {
+            this.checkin = checkin;
+            this.checkout = checkout;
+            this.price = price;
+            this.totaldays = totaldays;
+            this.rooms = rooms;
+            this.firstname = firstname;
+            this.lastname = lastname;
+            this.email = email;
+            this.number = number;
+            this.specialrequest = specialrequest;
+        }
+        public FinalStorageData() { }
     }
     public class RoomData
     {
@@ -32,6 +46,14 @@ namespace Hotel_Booking_System.Pages
         public string price;
         public string adults;
         public string children;
+        public RoomData(string heading, string price, string adults, string children)
+        {
+            this.heading = heading;
+            this.price = price;
+            this.adults = adults;
+            this.children = children;
+        }
+        public RoomData() { }
     }
     public partial class BookingForm : System.Web.UI.Page
     {
