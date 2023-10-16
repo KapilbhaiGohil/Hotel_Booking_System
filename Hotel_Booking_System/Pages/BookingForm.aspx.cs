@@ -59,7 +59,10 @@ namespace Hotel_Booking_System.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (Session["jsrooms"] == null)
+            {
+                Response.Redirect("~/Pages/Home");
+            }
         }
 
         protected void finalBookButton_Click(object sender, EventArgs e)

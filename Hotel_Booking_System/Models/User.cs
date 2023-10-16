@@ -20,5 +20,12 @@ namespace Hotel_Booking_System.Models
             Password = password;
             Phone = phone;
         }
+        public User( string name, string email, string password, string phone)
+        {
+            Name = name;
+            Email = email;
+            Password = password;
+            Phone = phone;
+        }
     }
 }

@@ -1,10 +1,13 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BookingForm.aspx.cs" MasterPageFile="~/Pages/HeaderAndFooter.Master" Inherits="Hotel_Booking_System.Pages.BookingForm" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="head">
-    <title>Taj Lake Palace, Udaipur - Grand Palace Hotel in Udaipur at Lake Pichola | Taj Hotels</title>
+    <title>Reservation Form | Taj Lake Palace, Udaipur | Taj Hotels </title>
     <link rel="stylesheet" type="text/css" href="Css/BookingForm.css" />
 </asp:Content>
 <asp:Content ID="home" ContentPlaceHolderID="MainContent" runat="server">
+    <div class="error" id="error">
+        <div class="error-text" id="error-text"></div>
+    </div>
     <div class="booking-form-outer">
         <div class="booking-heading-upper">
             <span>Review Your Booking</span>
@@ -28,7 +31,7 @@
                             <div class="booking-data-info">
                                 <span id="dayAndNight">2 Days & 1 Night</span>
                                 <span style="float: right;">
-                                    <input type="button" value="Change Room" /></span>
+                                    <input type="button" onclick="goBack()" value="Change Room" /></span>
                             </div>
                             <div id="each-room-info" class="booking-each-room-info">
                                 <div>
@@ -112,6 +115,9 @@
         let jsrooms = <%=Session["jsrooms"] ?? "''"%>;
         let finalAspButton = '<%= finalBookButton.ClientID%>';
         let finalStorage = '<%= hiddenField.ClientID%>';
+        function goBack() {
+            window.location.href = "/Pages/BookRoomList";
+        }
     </script>
     <script src="Script/BookingForm.js"></script>
 </asp:Content>

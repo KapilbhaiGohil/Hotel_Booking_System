@@ -33,18 +33,28 @@ namespace Hotel_Booking_System.Database
         }
         public bool AddUser(User u)
         {
-            SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
-            string query = "insert into user(name,email,password,phone) values(@name,@email,@password,@phone)";
-            SqlCommand cmd = new SqlCommand(query, con);
-            cmd.Parameters.AddWithValue("@name", u.Name);
-            cmd.Parameters.AddWithValue("@email", u.Email);
-            cmd.Parameters.AddWithValue("@password", u.Password);
-            cmd.Parameters.AddWithValue("@phone", u.Phone);
-            int rows = cmd.ExecuteNonQuery();
-            con.Close();
-            cmd.Dispose();
-            return true;
+            using (SqlConnection con = new SqlConnection(connectionString))
+            {
+                try
+                {
+                    con.Open();
+                    string query = "INSERT INTO [user] (name, email, password, phone) VALUES (@name, @email, @password, @phone)";
+                    using (SqlCommand cmd = new SqlCommand(query, con))
+                    {
+                        cmd.Parameters.AddWithValue("@name", u.Name);
+                        cmd.Parameters.AddWithValue("@email", u.Email);
+                        cmd.Parameters.AddWithValue("@password", u.Password);
+                        cmd.Parameters.AddWithValue("@phone", u.Phone);
+                        int rows = cmd.ExecuteNonQuery();
+                        return rows > 0;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    return false;
+                }
+            }
         }
+
     }
 }

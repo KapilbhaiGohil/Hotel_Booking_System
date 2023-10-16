@@ -1,11 +1,13 @@
 ﻿using Hotel_Booking_System.Database;
 using Hotel_Booking_System.Models;
+using Org.BouncyCastle.Asn1.Cmp;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
+using System.Web.Script.Serialization;
 using System.Web.Services.Description;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -14,27 +16,32 @@ namespace Hotel_Booking_System.Pages
 {
     public partial class Login : System.Web.UI.Page
     {
-        private readonly string connectionString =  ConfigurationManager.ConnectionStrings["Hotelconnection"].ConnectionString;
-        public UserDAO uDao;
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            uDao = new UserDAO();
+            if (Session["msg"] != null)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "msg", "showMsg(" + new JavaScriptSerializer().Serialize(Session["msg"]) + ")", true);
+                Session["msg"] = null;
+
+            }
         }
 
         protected void login_button_Click(object sender, EventArgs e)
         {
             string mail = email.Text;
             string password = pass.Text;
-            User valid = uDao.ValidateUser(mail, password);
+            User valid = new UserDAO().ValidateUser(mail, password);
             if (valid == null)
             {
-                string errormsg = "Invalid Credential";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "ShowError", "showPopUpMsg('"+ errormsg+ "', true);", true);
+                string errormsg = "Invalid Credential Received Pls Try Again With Correct Credential";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "ShowError", "showMsg(" + new JavaScriptSerializer().Serialize(new Message(errormsg, Status.Error))+ ")", true);
+         
             }
             else
             {
-                Response.Write(valid.Name);
                 Session["user"] = valid;
+                Session["msg"] = new Message("Successful Login",Status.successful);
                 Response.Redirect("~/Pages/Home");
             }
         }

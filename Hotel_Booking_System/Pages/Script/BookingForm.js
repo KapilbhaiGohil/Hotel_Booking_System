@@ -33,7 +33,11 @@ function BookARoom() {
     console.log("thiss a final booking data" + JSON.stringify(data));
     let submitbtn = document.getElementById(finalAspButton);
     document.getElementById(finalStorage).value = JSON.stringify(data);
-    submitbtn.click();
+    if (number.length != 10) {
+        showMsg({ info:"Pls Enter A Valid Mobile Number", status:1})
+    } else {
+        submitbtn.click();
+    }
 }
 function getDaysAndNight() {
     return `

@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BookRoomList.aspx.cs" MasterPageFile="~/Pages/HeaderAndFooter.Master" Inherits="Hotel_Booking_System.Pages.BookRoomList" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="head">
-    <title>Taj Lake Palace, Udaipur - Grand Palace Hotel in Udaipur at Lake Pichola | Taj Hotels</title>
+    <title>Available Room's List | Taj Lake Palace, Udaipur | Taj Hotels</title>
     <link rel="stylesheet" type="text/css" href="Css/BookRoom.css" />
 </asp:Content>
 <asp:Content ID="home" ContentPlaceHolderID="MainContent" runat="server">

@@ -34,6 +34,7 @@ namespace Hotel_Booking_System.Pages
         {
             // Response.Write(Session["reservationInfo"]);
             //Response.Write(HttpContext.Current.Server.MapPath("/Pages/"));
+            Session["jsrooms"] = null;
         }
         protected void print_Click(object sender, EventArgs e)
         {

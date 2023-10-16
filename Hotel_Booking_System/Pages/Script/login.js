@@ -1,17 +1,8 @@
-﻿//error message
-let popup = document.getElementById("error-text");
-function showPopUpMsg(msg,iserror) {
-    popup.innerHTML = msg;
-    popup.style.backgroundColor = iserror ?"red":"green";
-    popup.style.display = 'block';
-    setTimeout(() => {
-        popup.style.display = "none";
-    },4000)
-}
+﻿
 //login page
 //change the checkbox
 let img = document.getElementById("checkbox");
-let btn = document.getElementById("login_button");
+let btn = document.getElementById(btnLoginId);
 btn.style.opacity = 0.5;
 let ok = false;
 btn.disabled = true;
@@ -33,7 +24,7 @@ btn.addEventListener('click', () => {
     
 })
 
-let email = document.getElementById("email");
-let pass = document.getElementById("pass");
+let email = document.getElementById(emaiInputId);
+let pass = document.getElementById(passInputId);
 email.required = true;
 pass.required = true;

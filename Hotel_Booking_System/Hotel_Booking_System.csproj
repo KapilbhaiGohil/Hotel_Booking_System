@@ -299,6 +299,7 @@
     <Content Include="Pages\Script\Home.js" />
     <Content Include="Pages\Script\login.js" />
     <Content Include="Pages\Script\ManageBooking.js" />
+    <Content Include="Pages\Script\Master.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />

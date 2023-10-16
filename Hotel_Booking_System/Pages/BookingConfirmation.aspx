@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" ValidateRequest="false" AutoEventWireup="true" CodeBehind="BookingConfirmation.aspx.cs" MasterPageFile="~/Pages/HeaderAndFooter.Master" Inherits="Hotel_Booking_System.Pages.BookingConfirmation" %>
 
 <asp:Content runat="server" ContentPlaceHolderID="head">
-    <title>Taj Lake Palace, Udaipur - Grand Palace Hotel in Udaipur at Lake Pichola | Taj Hotels</title>
+    <title>Conform Your Booking | Taj Lake Palace, Udaipur | Taj Hotels</title>
     <link rel="stylesheet" type="text/css" href="Css/BookingConfirmation.css" />
 </asp:Content>
 <asp:Content ID="home" ContentPlaceHolderID="MainContent" runat="server">
@@ -39,7 +39,6 @@
         </div>
     </div>
     <script type="text/javascript">
-       
         let hiddenInnerHtmlId = '<%=hiddenInnerHtml.ClientID%>';
         let print_submitId = '<%=print_submit.ClientID%>';
         let cancel_submitId = '<%=cancelBook.ClientID%>';

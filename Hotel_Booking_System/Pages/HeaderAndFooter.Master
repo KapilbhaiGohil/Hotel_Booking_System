@@ -10,19 +10,59 @@
     <title>Taj Lake Palace, Udaipur - Grand Palace Hotel in Udaipur at Lake Pichola | Taj Hotels</title>
     <link rel="stylesheet" type="text/css" href="Css/HeaderAndFooter.css" />
     <link rel="stylesheet" type="text/css" href="Css/Home.css" />
+    <style>
+        .error {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 12px;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            display: none;
+        }
+
+        .error-text {
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            background: green;
+            border-radius: 0.5rem;
+            padding: 1rem;
+        }
+    </style>
+      <script type="text/javascript">
+          function showMsg(msg) {
+              console.log(msg);
+              let errorDiv = document.getElementById("error");
+              let errorText = document.getElementById("error-text");
+              errorDiv.style.display = "flex";
+              if (msg.status == 1) {
+                  errorText.style.background = "rgba(165, 6, 6, 0.85)";
+              } else {
+                  errorText.style.background = "#119011bd";
+              }
+              errorText.textContent = msg.info;
+              setTimeout(() => { errorDiv.style.display = "none"; }, 3000);
+          }
+      </script>
 </head>
 <body>
     <form id="form1" runat="server">
-        <nav>
+        <div class="error" id="error">
+            <div class="error-text" id="error-text"></div>
+        </div>
+        <nav id="navbar">
             <div class="content-left">
                 <div class="logo">
                     <img src="../Images/logo.png" alt="Hotel Logo Image" height="38px" />
                 </div>
                 <div class="links">
-                    <asp:HyperLink style="color:#aa7938;" ID="HyperLink1" NavigateUrl="~/Pages/Home.aspx" runat="server">Home</asp:HyperLink>
-                    <asp:HyperLink style="color:#aa7938;" ID="HyperLink2" runat="server">Dining</asp:HyperLink>
-                    <asp:HyperLink style="color:#aa7938;" ID="HyperLink3" runat="server">Wedding</asp:HyperLink>
-                    <asp:HyperLink style="color:#aa7938;" sID="HyperLink4" NavigateUrl="~/Pages/ManageBooking.aspx" runat="server">Manage Booking</asp:HyperLink>
+                    <asp:HyperLink Style="color: #aa7938;" ID="HyperLink1" NavigateUrl="~/Pages/Home.aspx" runat="server">Home</asp:HyperLink>
+                    <asp:HyperLink Style="color: #aa7938;" ID="HyperLink2" runat="server">Dining</asp:HyperLink>
+                    <asp:HyperLink Style="color: #aa7938;" ID="HyperLink3" runat="server">Wedding</asp:HyperLink>
+                    <asp:HyperLink Style="color: #aa7938;" sID="HyperLink4" NavigateUrl="~/Pages/ManageBooking.aspx" runat="server">Manage Booking</asp:HyperLink>
                 </div>
             </div>
             <div class="content-right">
@@ -146,7 +186,7 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
         </div>
-        <footer class="footer">
+        <footer id="footer" class="footer">
             <hr />
             <div class="footer-links">
                 <div class="links-1">
@@ -232,7 +272,7 @@
                 </div>
             </div>
         </footer>
-        <script src="Script/Home.js" type="text/javascript"></script>
+        <script src="Script/Master.js"></script>
     </form>
 </body>
 </html>

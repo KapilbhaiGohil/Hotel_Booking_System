@@ -21,7 +21,7 @@ namespace Hotel_Booking_System
             {
                 ClientScript.RegisterStartupScript(this.GetType(),"msg", "showMsg(" + new JavaScriptSerializer().Serialize(Session["msg"])+")", true);
                 Session["msg"] = null;
-                Response.Write("insdie the executions");
+
             }
 
             List<Room> rooms = new RoomDAO().GetRooms();
